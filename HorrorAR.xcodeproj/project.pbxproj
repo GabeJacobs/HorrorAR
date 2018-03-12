@@ -1,0 +1,561 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		008EDF072056C9DF00AADA87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF062056C9DF00AADA87 /* AppDelegate.m */; };
+		008EDF092056C9E000AADA87 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 008EDF082056C9E000AADA87 /* art.scnassets */; };
+		008EDF0C2056C9E000AADA87 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF0B2056C9E000AADA87 /* ViewController.m */; };
+		008EDF0F2056C9E000AADA87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008EDF0D2056C9E000AADA87 /* Main.storyboard */; };
+		008EDF112056C9E000AADA87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 008EDF102056C9E000AADA87 /* Assets.xcassets */; };
+		008EDF142056C9E000AADA87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008EDF122056C9E000AADA87 /* LaunchScreen.storyboard */; };
+		008EDF172056C9E000AADA87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF162056C9E000AADA87 /* main.m */; };
+		008EDF212056C9E000AADA87 /* HorrorARTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF202056C9E000AADA87 /* HorrorARTests.m */; };
+		008EDF2C2056C9E000AADA87 /* HorrorARUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF2B2056C9E000AADA87 /* HorrorARUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		008EDF1D2056C9E000AADA87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 008EDEFA2056C9DF00AADA87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 008EDF012056C9DF00AADA87;
+			remoteInfo = HorrorAR;
+		};
+		008EDF282056C9E000AADA87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 008EDEFA2056C9DF00AADA87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 008EDF012056C9DF00AADA87;
+			remoteInfo = HorrorAR;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		008EDF022056C9DF00AADA87 /* HorrorAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HorrorAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		008EDF052056C9DF00AADA87 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		008EDF062056C9DF00AADA87 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		008EDF082056C9E000AADA87 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		008EDF0A2056C9E000AADA87 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		008EDF0B2056C9E000AADA87 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		008EDF0E2056C9E000AADA87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		008EDF102056C9E000AADA87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		008EDF132056C9E000AADA87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		008EDF152056C9E000AADA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		008EDF162056C9E000AADA87 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		008EDF1C2056C9E000AADA87 /* HorrorARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorrorARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		008EDF202056C9E000AADA87 /* HorrorARTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorrorARTests.m; sourceTree = "<group>"; };
+		008EDF222056C9E000AADA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		008EDF272056C9E000AADA87 /* HorrorARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorrorARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		008EDF2B2056C9E000AADA87 /* HorrorARUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorrorARUITests.m; sourceTree = "<group>"; };
+		008EDF2D2056C9E000AADA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		008EDEFF2056C9DF00AADA87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		008EDF192056C9E000AADA87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		008EDF242056C9E000AADA87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		008EDEF92056C9DF00AADA87 = {
+			isa = PBXGroup;
+			children = (
+				008EDF042056C9DF00AADA87 /* HorrorAR */,
+				008EDF1F2056C9E000AADA87 /* HorrorARTests */,
+				008EDF2A2056C9E000AADA87 /* HorrorARUITests */,
+				008EDF032056C9DF00AADA87 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		008EDF032056C9DF00AADA87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				008EDF022056C9DF00AADA87 /* HorrorAR.app */,
+				008EDF1C2056C9E000AADA87 /* HorrorARTests.xctest */,
+				008EDF272056C9E000AADA87 /* HorrorARUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		008EDF042056C9DF00AADA87 /* HorrorAR */ = {
+			isa = PBXGroup;
+			children = (
+				008EDF052056C9DF00AADA87 /* AppDelegate.h */,
+				008EDF062056C9DF00AADA87 /* AppDelegate.m */,
+				008EDF082056C9E000AADA87 /* art.scnassets */,
+				008EDF0A2056C9E000AADA87 /* ViewController.h */,
+				008EDF0B2056C9E000AADA87 /* ViewController.m */,
+				008EDF0D2056C9E000AADA87 /* Main.storyboard */,
+				008EDF102056C9E000AADA87 /* Assets.xcassets */,
+				008EDF122056C9E000AADA87 /* LaunchScreen.storyboard */,
+				008EDF152056C9E000AADA87 /* Info.plist */,
+				008EDF162056C9E000AADA87 /* main.m */,
+			);
+			path = HorrorAR;
+			sourceTree = "<group>";
+		};
+		008EDF1F2056C9E000AADA87 /* HorrorARTests */ = {
+			isa = PBXGroup;
+			children = (
+				008EDF202056C9E000AADA87 /* HorrorARTests.m */,
+				008EDF222056C9E000AADA87 /* Info.plist */,
+			);
+			path = HorrorARTests;
+			sourceTree = "<group>";
+		};
+		008EDF2A2056C9E000AADA87 /* HorrorARUITests */ = {
+			isa = PBXGroup;
+			children = (
+				008EDF2B2056C9E000AADA87 /* HorrorARUITests.m */,
+				008EDF2D2056C9E000AADA87 /* Info.plist */,
+			);
+			path = HorrorARUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		008EDF012056C9DF00AADA87 /* HorrorAR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 008EDF302056C9E000AADA87 /* Build configuration list for PBXNativeTarget "HorrorAR" */;
+			buildPhases = (
+				008EDEFE2056C9DF00AADA87 /* Sources */,
+				008EDEFF2056C9DF00AADA87 /* Frameworks */,
+				008EDF002056C9DF00AADA87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HorrorAR;
+			productName = HorrorAR;
+			productReference = 008EDF022056C9DF00AADA87 /* HorrorAR.app */;
+			productType = "com.apple.product-type.application";
+		};
+		008EDF1B2056C9E000AADA87 /* HorrorARTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 008EDF332056C9E000AADA87 /* Build configuration list for PBXNativeTarget "HorrorARTests" */;
+			buildPhases = (
+				008EDF182056C9E000AADA87 /* Sources */,
+				008EDF192056C9E000AADA87 /* Frameworks */,
+				008EDF1A2056C9E000AADA87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				008EDF1E2056C9E000AADA87 /* PBXTargetDependency */,
+			);
+			name = HorrorARTests;
+			productName = HorrorARTests;
+			productReference = 008EDF1C2056C9E000AADA87 /* HorrorARTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		008EDF262056C9E000AADA87 /* HorrorARUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 008EDF362056C9E000AADA87 /* Build configuration list for PBXNativeTarget "HorrorARUITests" */;
+			buildPhases = (
+				008EDF232056C9E000AADA87 /* Sources */,
+				008EDF242056C9E000AADA87 /* Frameworks */,
+				008EDF252056C9E000AADA87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				008EDF292056C9E000AADA87 /* PBXTargetDependency */,
+			);
+			name = HorrorARUITests;
+			productName = HorrorARUITests;
+			productReference = 008EDF272056C9E000AADA87 /* HorrorARUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		008EDEFA2056C9DF00AADA87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Gabe Jacobs";
+				TargetAttributes = {
+					008EDF012056C9DF00AADA87 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					008EDF1B2056C9E000AADA87 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 008EDF012056C9DF00AADA87;
+					};
+					008EDF262056C9E000AADA87 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 008EDF012056C9DF00AADA87;
+					};
+				};
+			};
+			buildConfigurationList = 008EDEFD2056C9DF00AADA87 /* Build configuration list for PBXProject "HorrorAR" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 008EDEF92056C9DF00AADA87;
+			productRefGroup = 008EDF032056C9DF00AADA87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				008EDF012056C9DF00AADA87 /* HorrorAR */,
+				008EDF1B2056C9E000AADA87 /* HorrorARTests */,
+				008EDF262056C9E000AADA87 /* HorrorARUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		008EDF002056C9DF00AADA87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				008EDF092056C9E000AADA87 /* art.scnassets in Resources */,
+				008EDF142056C9E000AADA87 /* LaunchScreen.storyboard in Resources */,
+				008EDF112056C9E000AADA87 /* Assets.xcassets in Resources */,
+				008EDF0F2056C9E000AADA87 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		008EDF1A2056C9E000AADA87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		008EDF252056C9E000AADA87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		008EDEFE2056C9DF00AADA87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				008EDF0C2056C9E000AADA87 /* ViewController.m in Sources */,
+				008EDF172056C9E000AADA87 /* main.m in Sources */,
+				008EDF072056C9DF00AADA87 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		008EDF182056C9E000AADA87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				008EDF212056C9E000AADA87 /* HorrorARTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		008EDF232056C9E000AADA87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				008EDF2C2056C9E000AADA87 /* HorrorARUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		008EDF1E2056C9E000AADA87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 008EDF012056C9DF00AADA87 /* HorrorAR */;
+			targetProxy = 008EDF1D2056C9E000AADA87 /* PBXContainerItemProxy */;
+		};
+		008EDF292056C9E000AADA87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 008EDF012056C9DF00AADA87 /* HorrorAR */;
+			targetProxy = 008EDF282056C9E000AADA87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		008EDF0D2056C9E000AADA87 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				008EDF0E2056C9E000AADA87 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		008EDF122056C9E000AADA87 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				008EDF132056C9E000AADA87 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		008EDF2E2056C9E000AADA87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		008EDF2F2056C9E000AADA87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		008EDF312056C9E000AADA87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZC9XKUHSQ8;
+				INFOPLIST_FILE = HorrorAR/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mssngpeces.HorrorAR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		008EDF322056C9E000AADA87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZC9XKUHSQ8;
+				INFOPLIST_FILE = HorrorAR/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mssngpeces.HorrorAR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		008EDF342056C9E000AADA87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZC9XKUHSQ8;
+				INFOPLIST_FILE = HorrorARTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mssngpeces.HorrorARTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HorrorAR.app/HorrorAR";
+			};
+			name = Debug;
+		};
+		008EDF352056C9E000AADA87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZC9XKUHSQ8;
+				INFOPLIST_FILE = HorrorARTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mssngpeces.HorrorARTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HorrorAR.app/HorrorAR";
+			};
+			name = Release;
+		};
+		008EDF372056C9E000AADA87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZC9XKUHSQ8;
+				INFOPLIST_FILE = HorrorARUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mssngpeces.HorrorARUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HorrorAR;
+			};
+			name = Debug;
+		};
+		008EDF382056C9E000AADA87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZC9XKUHSQ8;
+				INFOPLIST_FILE = HorrorARUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mssngpeces.HorrorARUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HorrorAR;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		008EDEFD2056C9DF00AADA87 /* Build configuration list for PBXProject "HorrorAR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				008EDF2E2056C9E000AADA87 /* Debug */,
+				008EDF2F2056C9E000AADA87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		008EDF302056C9E000AADA87 /* Build configuration list for PBXNativeTarget "HorrorAR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				008EDF312056C9E000AADA87 /* Debug */,
+				008EDF322056C9E000AADA87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		008EDF332056C9E000AADA87 /* Build configuration list for PBXNativeTarget "HorrorARTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				008EDF342056C9E000AADA87 /* Debug */,
+				008EDF352056C9E000AADA87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		008EDF362056C9E000AADA87 /* Build configuration list for PBXNativeTarget "HorrorARUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				008EDF372056C9E000AADA87 /* Debug */,
+				008EDF382056C9E000AADA87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 008EDEFA2056C9DF00AADA87 /* Project object */;
+}
