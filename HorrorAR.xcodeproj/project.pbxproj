@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001FC93020618A400067132C /* Plane.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FC92E20618A3E0067132C /* Plane.m */; };
 		0048267E2056EA6500D1AA57 /* facetime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0048267D2056EA6500D1AA57 /* facetime.mp3 */; };
 		004826802057099400D1AA57 /* demo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0048267F2057099400D1AA57 /* demo.mov */; };
-		0051361E2061610D000065F1 /* PNG.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0051361C20615DC9000065F1 /* PNG.atlas */; };
+		0051362020616AD0000065F1 /* HorrorPNG.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0051361F20616AD0000065F1 /* HorrorPNG.atlas */; };
 		0062052820602ED900A743F1 /* demo-short.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0062052720602ED900A743F1 /* demo-short.mov */; };
 		0062052B206030AB00A743F1 /* HRCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062052A206030AB00A743F1 /* HRCamViewController.m */; };
 		0062052D20603AEE00A743F1 /* mona+lisa+frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 0062052C20603AEE00A743F1 /* mona+lisa+frame.png */; };
@@ -47,9 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001FC92E20618A3E0067132C /* Plane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plane.m; sourceTree = "<group>"; };
+		001FC92F20618A3F0067132C /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plane.h; sourceTree = "<group>"; };
 		0048267D2056EA6500D1AA57 /* facetime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = facetime.mp3; path = Assets/Sounds/facetime.mp3; sourceTree = SOURCE_ROOT; };
 		0048267F2057099400D1AA57 /* demo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = demo.mov; path = Assets/Video/demo.mov; sourceTree = SOURCE_ROOT; };
-		0051361C20615DC9000065F1 /* PNG.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PNG.atlas; sourceTree = "<group>"; };
+		0051361F20616AD0000065F1 /* HorrorPNG.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HorrorPNG.atlas; sourceTree = "<group>"; };
 		0062052720602ED900A743F1 /* demo-short.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = "demo-short.mov"; path = "Assets/Video/demo-short.mov"; sourceTree = SOURCE_ROOT; };
 		00620529206030AB00A743F1 /* HRCamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HRCamViewController.h; path = /Users/gabe/Desktop/HorrorAR/HorrorAR/HRCamViewController.h; sourceTree = "<absolute>"; };
 		0062052A206030AB00A743F1 /* HRCamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HRCamViewController.m; path = /Users/gabe/Desktop/HorrorAR/HorrorAR/HRCamViewController.m; sourceTree = "<absolute>"; };
@@ -139,6 +142,7 @@
 		008EDF042056C9DF00AADA87 /* HorrorAR */ = {
 			isa = PBXGroup;
 			children = (
+				0051361F20616AD0000065F1 /* HorrorPNG.atlas */,
 				0048267D2056EA6500D1AA57 /* facetime.mp3 */,
 				0048267F2057099400D1AA57 /* demo.mov */,
 				0062052720602ED900A743F1 /* demo-short.mov */,
@@ -153,10 +157,11 @@
 				008EDF402056D4D500AADA87 /* HRMainNavController.m */,
 				00620529206030AB00A743F1 /* HRCamViewController.h */,
 				0062052A206030AB00A743F1 /* HRCamViewController.m */,
+				001FC92F20618A3F0067132C /* Plane.h */,
+				001FC92E20618A3E0067132C /* Plane.m */,
 				008EDF0D2056C9E000AADA87 /* Main.storyboard */,
 				008EDF102056C9E000AADA87 /* Assets.xcassets */,
 				008EDF122056C9E000AADA87 /* LaunchScreen.storyboard */,
-				0051361C20615DC9000065F1 /* PNG.atlas */,
 				008EDF152056C9E000AADA87 /* Info.plist */,
 				008EDF162056C9E000AADA87 /* main.m */,
 				0062052C20603AEE00A743F1 /* mona+lisa+frame.png */,
@@ -320,7 +325,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0051361E2061610D000065F1 /* PNG.atlas in Resources */,
 				008EDF092056C9E000AADA87 /* art.scnassets in Resources */,
 				008EDF142056C9E000AADA87 /* LaunchScreen.storyboard in Resources */,
 				0048267E2056EA6500D1AA57 /* facetime.mp3 in Resources */,
@@ -329,6 +333,7 @@
 				004826802057099400D1AA57 /* demo.mov in Resources */,
 				008EDF112056C9E000AADA87 /* Assets.xcassets in Resources */,
 				008EDF0F2056C9E000AADA87 /* Main.storyboard in Resources */,
+				0051362020616AD0000065F1 /* HorrorPNG.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +509,7 @@
 				0062052B206030AB00A743F1 /* HRCamViewController.m in Sources */,
 				008EDF412056D4D500AADA87 /* HRMainNavController.m in Sources */,
 				008EDF072056C9DF00AADA87 /* AppDelegate.m in Sources */,
+				001FC93020618A400067132C /* Plane.m in Sources */,
 				008EDF3B2056CA1200AADA87 /* HRIntroViewController.m in Sources */,
 				008EDF3E2056D49D00AADA87 /* HRFaceTimeViewController.m in Sources */,
 			);

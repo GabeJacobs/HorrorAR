@@ -51,7 +51,7 @@
 - (void)tappedScreen {
     self.mainAction.userInteractionEnabled = NO;
     self.instructionStep = 4;
-//    self.instructionStep++;
+    //self.instructionStep++;
     if(self.instructionStep == 4){
         self.mainAction.userInteractionEnabled = YES;
     }

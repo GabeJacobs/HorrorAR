@@ -8,11 +8,15 @@
 #import <UIKit/UIKit.h>
 #import <SceneKit/SceneKit.h>
 #import <ARKit/ARKit.h>
+#import "Plane.h"
 
 @interface HRCamViewController : UIViewController
 
+@property (nonatomic) BOOL canShowRope;
+@property (nonatomic, strong) NSTimer *ropeTimer;
+
 @property (nonatomic, strong) ARSCNView *sceneView;
-@property (nonatomic, strong) NSMutableArray *planes;
+@property (nonatomic, strong) NSMutableDictionary *planes;
 
 @property (nonatomic) ARTrackingState currentTrackingState;
 @property (nonatomic, retain) ARWorldTrackingConfiguration *arConfig;
