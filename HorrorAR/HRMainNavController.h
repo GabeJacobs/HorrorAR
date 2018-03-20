@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HRIntroViewController.h"
 
 @interface HRMainNavController : UINavigationController
 

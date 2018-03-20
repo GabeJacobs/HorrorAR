@@ -10,4 +10,8 @@
 
 @interface HRIntroViewController : UIViewController
 
+@property (nonatomic, strong) UIButton *mainAction;
+@property (nonatomic, strong) UILabel  *instructionLabel;
+@property (nonatomic) int  instructionStep;
+
 @end

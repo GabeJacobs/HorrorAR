@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0048267E2056EA6500D1AA57 /* facetime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0048267D2056EA6500D1AA57 /* facetime.mp3 */; };
+		004826802057099400D1AA57 /* demo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0048267F2057099400D1AA57 /* demo.mov */; };
+		0051361E2061610D000065F1 /* PNG.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0051361C20615DC9000065F1 /* PNG.atlas */; };
+		0062052820602ED900A743F1 /* demo-short.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0062052720602ED900A743F1 /* demo-short.mov */; };
+		0062052B206030AB00A743F1 /* HRCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062052A206030AB00A743F1 /* HRCamViewController.m */; };
+		0062052D20603AEE00A743F1 /* mona+lisa+frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 0062052C20603AEE00A743F1 /* mona+lisa+frame.png */; };
 		008EDF072056C9DF00AADA87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF062056C9DF00AADA87 /* AppDelegate.m */; };
 		008EDF092056C9E000AADA87 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 008EDF082056C9E000AADA87 /* art.scnassets */; };
-		008EDF0C2056C9E000AADA87 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF0B2056C9E000AADA87 /* ViewController.m */; };
 		008EDF0F2056C9E000AADA87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008EDF0D2056C9E000AADA87 /* Main.storyboard */; };
 		008EDF112056C9E000AADA87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 008EDF102056C9E000AADA87 /* Assets.xcassets */; };
 		008EDF142056C9E000AADA87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008EDF122056C9E000AADA87 /* LaunchScreen.storyboard */; };
 		008EDF172056C9E000AADA87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF162056C9E000AADA87 /* main.m */; };
 		008EDF212056C9E000AADA87 /* HorrorARTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF202056C9E000AADA87 /* HorrorARTests.m */; };
 		008EDF2C2056C9E000AADA87 /* HorrorARUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF2B2056C9E000AADA87 /* HorrorARUITests.m */; };
+		008EDF3B2056CA1200AADA87 /* HRIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF3A2056CA1200AADA87 /* HRIntroViewController.m */; };
+		008EDF3E2056D49D00AADA87 /* HRFaceTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF3D2056D49D00AADA87 /* HRFaceTimeViewController.m */; };
+		008EDF412056D4D500AADA87 /* HRMainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF402056D4D500AADA87 /* HRMainNavController.m */; };
+		0EC4C2251B15A63D5AC26102 /* libPods-HorrorAR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F822A1A1CDEDFDE930C0B5 /* libPods-HorrorAR.a */; };
+		3849ABC80B38008CA94AEDB1 /* libPods-HorrorARUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1180C728967D73790DAE4D9B /* libPods-HorrorARUITests.a */; };
+		7CB7C2C0FB1763037F32B8A0 /* libPods-HorrorARTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 604F83B9793401EE27ADCF57 /* libPods-HorrorARTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +47,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0048267D2056EA6500D1AA57 /* facetime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = facetime.mp3; path = Assets/Sounds/facetime.mp3; sourceTree = SOURCE_ROOT; };
+		0048267F2057099400D1AA57 /* demo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = demo.mov; path = Assets/Video/demo.mov; sourceTree = SOURCE_ROOT; };
+		0051361C20615DC9000065F1 /* PNG.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PNG.atlas; sourceTree = "<group>"; };
+		0062052720602ED900A743F1 /* demo-short.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = "demo-short.mov"; path = "Assets/Video/demo-short.mov"; sourceTree = SOURCE_ROOT; };
+		00620529206030AB00A743F1 /* HRCamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HRCamViewController.h; path = /Users/gabe/Desktop/HorrorAR/HorrorAR/HRCamViewController.h; sourceTree = "<absolute>"; };
+		0062052A206030AB00A743F1 /* HRCamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HRCamViewController.m; path = /Users/gabe/Desktop/HorrorAR/HorrorAR/HRCamViewController.m; sourceTree = "<absolute>"; };
+		0062052C20603AEE00A743F1 /* mona+lisa+frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mona+lisa+frame.png"; sourceTree = "<group>"; };
 		008EDF022056C9DF00AADA87 /* HorrorAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HorrorAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		008EDF052056C9DF00AADA87 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		008EDF062056C9DF00AADA87 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		008EDF082056C9E000AADA87 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		008EDF0A2056C9E000AADA87 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		008EDF0B2056C9E000AADA87 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		008EDF0E2056C9E000AADA87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		008EDF102056C9E000AADA87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		008EDF132056C9E000AADA87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +69,21 @@
 		008EDF272056C9E000AADA87 /* HorrorARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HorrorARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		008EDF2B2056C9E000AADA87 /* HorrorARUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorrorARUITests.m; sourceTree = "<group>"; };
 		008EDF2D2056C9E000AADA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		008EDF392056CA1200AADA87 /* HRIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRIntroViewController.h; sourceTree = "<group>"; };
+		008EDF3A2056CA1200AADA87 /* HRIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRIntroViewController.m; sourceTree = "<group>"; };
+		008EDF3C2056D49D00AADA87 /* HRFaceTimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRFaceTimeViewController.h; sourceTree = "<group>"; };
+		008EDF3D2056D49D00AADA87 /* HRFaceTimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRFaceTimeViewController.m; sourceTree = "<group>"; };
+		008EDF3F2056D4D500AADA87 /* HRMainNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRMainNavController.h; sourceTree = "<group>"; };
+		008EDF402056D4D500AADA87 /* HRMainNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRMainNavController.m; sourceTree = "<group>"; };
+		1180C728967D73790DAE4D9B /* libPods-HorrorARUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HorrorARUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		604F83B9793401EE27ADCF57 /* libPods-HorrorARTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HorrorARTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65F822A1A1CDEDFDE930C0B5 /* libPods-HorrorAR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HorrorAR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		70D162E353CD7579EE47E405 /* Pods-HorrorAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorrorAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HorrorAR/Pods-HorrorAR.debug.xcconfig"; sourceTree = "<group>"; };
+		7874DBD4816AB525E06CD22B /* Pods-HorrorARUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorrorARUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HorrorARUITests/Pods-HorrorARUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7BEE5F1EF5F8B143C4D7A89C /* Pods-HorrorARUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorrorARUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HorrorARUITests/Pods-HorrorARUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B698D16B5AC636244BEAF214 /* Pods-HorrorARTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorrorARTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HorrorARTests/Pods-HorrorARTests.release.xcconfig"; sourceTree = "<group>"; };
+		C10E1186254C12CCBBE91E14 /* Pods-HorrorARTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorrorARTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HorrorARTests/Pods-HorrorARTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D64DBFC4C9BE292D729F72E8 /* Pods-HorrorAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HorrorAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-HorrorAR/Pods-HorrorAR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EC4C2251B15A63D5AC26102 /* libPods-HorrorAR.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CB7C2C0FB1763037F32B8A0 /* libPods-HorrorARTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3849ABC80B38008CA94AEDB1 /* libPods-HorrorARUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +121,8 @@
 				008EDF1F2056C9E000AADA87 /* HorrorARTests */,
 				008EDF2A2056C9E000AADA87 /* HorrorARUITests */,
 				008EDF032056C9DF00AADA87 /* Products */,
+				877F47E9C4A8DB32067670B7 /* Pods */,
+				6D36D7D00F4A9EA3E576376A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,16 +139,27 @@
 		008EDF042056C9DF00AADA87 /* HorrorAR */ = {
 			isa = PBXGroup;
 			children = (
+				0048267D2056EA6500D1AA57 /* facetime.mp3 */,
+				0048267F2057099400D1AA57 /* demo.mov */,
+				0062052720602ED900A743F1 /* demo-short.mov */,
 				008EDF052056C9DF00AADA87 /* AppDelegate.h */,
 				008EDF062056C9DF00AADA87 /* AppDelegate.m */,
 				008EDF082056C9E000AADA87 /* art.scnassets */,
-				008EDF0A2056C9E000AADA87 /* ViewController.h */,
-				008EDF0B2056C9E000AADA87 /* ViewController.m */,
+				008EDF3C2056D49D00AADA87 /* HRFaceTimeViewController.h */,
+				008EDF3D2056D49D00AADA87 /* HRFaceTimeViewController.m */,
+				008EDF392056CA1200AADA87 /* HRIntroViewController.h */,
+				008EDF3A2056CA1200AADA87 /* HRIntroViewController.m */,
+				008EDF3F2056D4D500AADA87 /* HRMainNavController.h */,
+				008EDF402056D4D500AADA87 /* HRMainNavController.m */,
+				00620529206030AB00A743F1 /* HRCamViewController.h */,
+				0062052A206030AB00A743F1 /* HRCamViewController.m */,
 				008EDF0D2056C9E000AADA87 /* Main.storyboard */,
 				008EDF102056C9E000AADA87 /* Assets.xcassets */,
 				008EDF122056C9E000AADA87 /* LaunchScreen.storyboard */,
+				0051361C20615DC9000065F1 /* PNG.atlas */,
 				008EDF152056C9E000AADA87 /* Info.plist */,
 				008EDF162056C9E000AADA87 /* main.m */,
+				0062052C20603AEE00A743F1 /* mona+lisa+frame.png */,
 			);
 			path = HorrorAR;
 			sourceTree = "<group>";
@@ -135,6 +182,29 @@
 			path = HorrorARUITests;
 			sourceTree = "<group>";
 		};
+		6D36D7D00F4A9EA3E576376A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65F822A1A1CDEDFDE930C0B5 /* libPods-HorrorAR.a */,
+				604F83B9793401EE27ADCF57 /* libPods-HorrorARTests.a */,
+				1180C728967D73790DAE4D9B /* libPods-HorrorARUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		877F47E9C4A8DB32067670B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				70D162E353CD7579EE47E405 /* Pods-HorrorAR.debug.xcconfig */,
+				D64DBFC4C9BE292D729F72E8 /* Pods-HorrorAR.release.xcconfig */,
+				C10E1186254C12CCBBE91E14 /* Pods-HorrorARTests.debug.xcconfig */,
+				B698D16B5AC636244BEAF214 /* Pods-HorrorARTests.release.xcconfig */,
+				7874DBD4816AB525E06CD22B /* Pods-HorrorARUITests.debug.xcconfig */,
+				7BEE5F1EF5F8B143C4D7A89C /* Pods-HorrorARUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,9 +212,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 008EDF302056C9E000AADA87 /* Build configuration list for PBXNativeTarget "HorrorAR" */;
 			buildPhases = (
+				32F116960246ACB257B19B08 /* [CP] Check Pods Manifest.lock */,
 				008EDEFE2056C9DF00AADA87 /* Sources */,
 				008EDEFF2056C9DF00AADA87 /* Frameworks */,
 				008EDF002056C9DF00AADA87 /* Resources */,
+				E41A5C0DD00B0D99FAA108BE /* [CP] Embed Pods Frameworks */,
+				6F73C91800216806ADC0F055 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,9 +232,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 008EDF332056C9E000AADA87 /* Build configuration list for PBXNativeTarget "HorrorARTests" */;
 			buildPhases = (
+				A4B56CA383AFF3912823EA5A /* [CP] Check Pods Manifest.lock */,
 				008EDF182056C9E000AADA87 /* Sources */,
 				008EDF192056C9E000AADA87 /* Frameworks */,
 				008EDF1A2056C9E000AADA87 /* Resources */,
+				06D1952ABB643133DB9E1615 /* [CP] Embed Pods Frameworks */,
+				D4C21D7EB16DAB2A52D6C9EF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -177,9 +253,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 008EDF362056C9E000AADA87 /* Build configuration list for PBXNativeTarget "HorrorARUITests" */;
 			buildPhases = (
+				7D9A51B2BDC10060740B82DA /* [CP] Check Pods Manifest.lock */,
 				008EDF232056C9E000AADA87 /* Sources */,
 				008EDF242056C9E000AADA87 /* Frameworks */,
 				008EDF252056C9E000AADA87 /* Resources */,
+				45E2F643BAA6D58EA84EA58E /* [CP] Embed Pods Frameworks */,
+				B16CA81DD372AF63177DD976 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,8 +320,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0051361E2061610D000065F1 /* PNG.atlas in Resources */,
 				008EDF092056C9E000AADA87 /* art.scnassets in Resources */,
 				008EDF142056C9E000AADA87 /* LaunchScreen.storyboard in Resources */,
+				0048267E2056EA6500D1AA57 /* facetime.mp3 in Resources */,
+				0062052D20603AEE00A743F1 /* mona+lisa+frame.png in Resources */,
+				0062052820602ED900A743F1 /* demo-short.mov in Resources */,
+				004826802057099400D1AA57 /* demo.mov in Resources */,
 				008EDF112056C9E000AADA87 /* Assets.xcassets in Resources */,
 				008EDF0F2056C9E000AADA87 /* Main.storyboard in Resources */,
 			);
@@ -264,14 +348,164 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06D1952ABB643133DB9E1615 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HorrorARTests/Pods-HorrorARTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		32F116960246ACB257B19B08 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HorrorAR-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45E2F643BAA6D58EA84EA58E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HorrorARUITests/Pods-HorrorARUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F73C91800216806ADC0F055 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HorrorAR/Pods-HorrorAR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D9A51B2BDC10060740B82DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HorrorARUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4B56CA383AFF3912823EA5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HorrorARTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B16CA81DD372AF63177DD976 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HorrorARUITests/Pods-HorrorARUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4C21D7EB16DAB2A52D6C9EF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HorrorARTests/Pods-HorrorARTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E41A5C0DD00B0D99FAA108BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HorrorAR/Pods-HorrorAR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		008EDEFE2056C9DF00AADA87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				008EDF0C2056C9E000AADA87 /* ViewController.m in Sources */,
 				008EDF172056C9E000AADA87 /* main.m in Sources */,
+				0062052B206030AB00A743F1 /* HRCamViewController.m in Sources */,
+				008EDF412056D4D500AADA87 /* HRMainNavController.m in Sources */,
 				008EDF072056C9DF00AADA87 /* AppDelegate.m in Sources */,
+				008EDF3B2056CA1200AADA87 /* HRIntroViewController.m in Sources */,
+				008EDF3E2056D49D00AADA87 /* HRFaceTimeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,11 +666,13 @@
 		};
 		008EDF312056C9E000AADA87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70D162E353CD7579EE47E405 /* Pods-HorrorAR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZC9XKUHSQ8;
 				INFOPLIST_FILE = HorrorAR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mssngpeces.HorrorAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -446,11 +682,13 @@
 		};
 		008EDF322056C9E000AADA87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D64DBFC4C9BE292D729F72E8 /* Pods-HorrorAR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZC9XKUHSQ8;
 				INFOPLIST_FILE = HorrorAR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mssngpeces.HorrorAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -460,6 +698,7 @@
 		};
 		008EDF342056C9E000AADA87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C10E1186254C12CCBBE91E14 /* Pods-HorrorARTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -475,6 +714,7 @@
 		};
 		008EDF352056C9E000AADA87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B698D16B5AC636244BEAF214 /* Pods-HorrorARTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -490,6 +730,7 @@
 		};
 		008EDF372056C9E000AADA87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7874DBD4816AB525E06CD22B /* Pods-HorrorARUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZC9XKUHSQ8;
@@ -504,6 +745,7 @@
 		};
 		008EDF382056C9E000AADA87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BEE5F1EF5F8B143C4D7A89C /* Pods-HorrorARUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZC9XKUHSQ8;

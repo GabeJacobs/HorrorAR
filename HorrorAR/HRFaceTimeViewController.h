@@ -7,7 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FastttCamera.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface HRFaceTimeViewController : UIViewController
+
+@property (nonatomic, strong) UIView *cameraOverlay;
+@property (nonatomic, strong) FastttCamera *camera;
+@property (nonatomic, strong) UILabel *unknownLabel;
+@property (nonatomic, strong) UILabel *wouldLikeTo;
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+@property (nonatomic, strong) UIButton *accept;
+@property (nonatomic, strong) UIButton *decline;
+@property (nonatomic, strong) UILabel *acceptLabel;
+@property (nonatomic, strong) UILabel *declineLabel;
+@property (nonatomic) BOOL noDecline;
+
+@property (nonatomic, strong) UIView *videoLayer;
+@property (nonatomic) AVPlayer *videoPlayer;
 
 @end
