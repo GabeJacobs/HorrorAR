@@ -6,7 +6,8 @@ target 'HorrorAR' do
   # use_frameworks!
 
   # Pods for HorrorAR
-  pod 'LLSimpleCamera'
+  pod 'FastttCamera'
+  pod 'SOMotionDetector'
 
   target 'HorrorARTests' do
     inherit! :search_paths

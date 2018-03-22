@@ -19,7 +19,7 @@
   // Instead of just visualizing the grid as a gray plane, we will render
   // it in some Tron style colours.
   SCNMaterial *material = [SCNMaterial new];
-  UIImage *img = [UIImage imageNamed:@"rope"];
+  UIImage *img = [UIImage imageNamed:@"letter"];
   material.diffuse.contents = img;
   self.planeGeometry.materials = @[material];
   

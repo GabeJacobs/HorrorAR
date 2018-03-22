@@ -114,11 +114,11 @@
 }
 
 - (void)tappedAccept {
+    [self.audioPlayer pause];
     [self performSelector:@selector(acceptedFT) withObject:nil afterDelay:.75];
 }
 
 - (void)acceptedFT {
-    [self.audioPlayer stop];
 //    self.camera.view.layer.anchorPoint = CGPointMake(.5,0);
     
     

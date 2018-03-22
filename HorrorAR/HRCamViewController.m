@@ -7,6 +7,7 @@
 
 #import "HRCamViewController.h"
 #import <math.h>
+#import "HRFaceTimeViewController.h"
 
 @interface HRCamViewController () <ARSCNViewDelegate, ARSessionDelegate>
 
@@ -18,7 +19,9 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.planes = [NSMutableArray array];
+    self.planes = [NSMutableDictionary dictionary];
+    self.anchors = [NSMutableArray array];
+
     [UIApplication.sharedApplication setIdleTimerDisabled:YES];
     
     self.arConfig = [ARWorldTrackingConfiguration new];
@@ -33,16 +36,33 @@
     self.sceneView.delegate = self;
     self.sceneView.session.delegate = self;
     
-    //[self turnTorchOn:YES];
+//    [self turnTorchOn:YES];
+    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
     
-    self.ropeTimer = [NSTimer scheduledTimerWithTimeInterval:15.0
-                                                      target:self
-                                                    selector:@selector(timerDone)
-                                                    userInfo:nil
-                                                     repeats:NO];
+    NSURL *audioPath = [[NSBundle mainBundle] URLForResource:@"hallowed" withExtension:@"mp3"];
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioPath error:nil];
+    self.audioPlayer.delegate = self;
+    [self.audioPlayer prepareToPlay];
+    [self.audioPlayer play];
     
     self.planes = [NSMutableDictionary new];
 
+    self.cameraOverlay = [[UIView alloc] initWithFrame:self.view.frame];
+    self.cameraOverlay.backgroundColor = [UIColor colorWithWhite:0 alpha:.25];
+    [self.view addSubview:self.cameraOverlay];
+    
+    self.instructionLabel = [[UILabel alloc] initWithFrame:self.view.bounds];
+    self.instructionLabel.frame = CGRectMake(22, 0, self.view.frame.size.width - 44, self.view.frame.size.height - 30);
+    self.instructionLabel.numberOfLines = 2;
+    self.instructionLabel.font = [UIFont fontWithName:@"Avenir-Black" size:25.0];
+    self.instructionLabel.textColor = [UIColor whiteColor];
+    self.instructionLabel.textAlignment = NSTextAlignmentCenter;
+    self.instructionLabel.text = @"Go to your bathroom.";
+    self.instructionLabel.hidden = NO;
+    [self.view addSubview:self.instructionLabel];
+    
+    [self performSelector:@selector(hideInstruction) withObject:nil afterDelay:5.0];
+    [self performSelector:@selector(showFirstARObject) withObject:nil afterDelay:17.0];
     
 }
 
@@ -63,32 +83,39 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)hideInstruction {
+    self.instructionLabel.hidden = YES;
+}
+
 #pragma mark - ARSCNViewDelegate
 
 - (void)renderer:(id <SCNSceneRenderer>)renderer didAddNode:(SCNNode *)node forAnchor:(ARAnchor *)anchor {
-    if (![anchor isKindOfClass:[ARPlaneAnchor class]]) {
-        return;
-    }
-    if(!self.canShowRope) {
-        return;
-    }
-    
-    // When a new plane is detected we create a new SceneKit plane to visualize it in 3D
-    Plane *plane = [[Plane alloc] initWithAnchor: (ARPlaneAnchor *)anchor];
-    [self.planes setObject:plane forKey:anchor.identifier];
-    [node addChildNode:plane];
+//    if([self.planes count] > 0){
+//        return;
+//    }
+//    if (![anchor isKindOfClass:[ARPlaneAnchor class]]) {
+//        return;
+//    }
+//    if(!self.canShowRope) {
+//        return;
+//    }
+//    [self.anchors addObject:anchor];
+//    // When a new plane is detected we create a new SceneKit plane to visualize it in 3D
+//    Plane *plane = [[Plane alloc] initWithAnchor: (ARPlaneAnchor *)anchor];
+//    [self.planes setObject:plane forKey:anchor.identifier];
+//    [node addChildNode:plane];
 }
 
 - (void)renderer:(id <SCNSceneRenderer>)renderer didUpdateNode:(SCNNode *)node forAnchor:(ARAnchor *)anchor {
-    Plane *plane = [self.planes objectForKey:anchor.identifier];
-    if (plane == nil) {
-        return;
-    }
-    
-    // When an anchor is updated we need to also update our 3D geometry too. For example
-    // the width and height of the plane detection may have changed so we need to update
-    // our SceneKit geometry to match that
-    [plane update:(ARPlaneAnchor *)anchor];
+//    Plane *plane = [self.planes objectForKey:anchor.identifier];
+//    if (plane == nil) {
+//        return;
+//    }
+//
+//    // When an anchor is updated we need to also update our 3D geometry too. For example
+//    // the width and height of the plane detection may have changed so we need to update
+//    // our SceneKit geometry to match that
+//    //[plane update:(ARPlaneAnchor *)anchor];
 }
 
 - (void)session:(ARSession *)session didFailWithError:(NSError *)error {
@@ -117,11 +144,9 @@
             [device lockForConfiguration:nil];
             if (on) {
                 [device setTorchMode:AVCaptureTorchModeOn];
-                [device setFlashMode:AVCaptureFlashModeOn];
                 //torchIsOn = YES; //define as a variable/property if you need to know status
             } else {
                 [device setTorchMode:AVCaptureTorchModeOff];
-                [device setFlashMode:AVCaptureFlashModeOff];
                 //torchIsOn = NO;
             }
             [device unlockForConfiguration];
@@ -130,59 +155,52 @@
     
 }
 
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)showFirstARObject {
+    NSLog(@"timer done");
     
-//    NSArray *touchesArray = [touches allObjects];
-//    UITouch *touch = (UITouch *)[touchesArray objectAtIndex:0];
-//    CGPoint point = [touch locationInView:self.sceneView];
-//    NSArray *results = [self.sceneView hitTest:point types:ARHitTestResultTypeExistingPlaneUsingExtent];
-//    ARHitTestResult *hitResult = [results firstObject];
-//
-//    SKTextureAtlas *textureAtlas = [SKTextureAtlas atlasNamed:@"PNG"];
-//    self.textureArray = [NSMutableArray array];
-//
-//    int numImages = textureAtlas.textureNames.count;
-//    for (int i=0; i <= (numImages - 1); i++) {
-//        NSString *textureName;
-//        if(i>=0 && i<10){
-//            textureName = [NSString stringWithFormat:@"cricket_0000%d", i];
-//        } else if(i>=10 && i<100){
-//            textureName = [NSString stringWithFormat:@"cricket_000%d", i];
-//        } else if(i>=100 && i<1000){
-//            textureName = [NSString stringWithFormat:@"cricket_00%d", i];
-//        } else if(i>=1000 && i<10000){
-//            textureName = [NSString stringWithFormat:@"cricket_0%d", i];
-//        }
-//        [self.textureArray addObject:[SKTexture textureWithImageNamed:textureName]];
-//    }
-//
-//    SKSpriteNode *videoSprite = [SKSpriteNode spriteNodeWithTexture:self.textureArray[0]];
-//    videoSprite.size = CGSizeMake(videoSprite.size.width, videoSprite.size.height);
-//    videoSprite.position = CGPointMake(videoSprite.size.width/2, videoSprite.size.height/2);
-//    videoSprite.yScale = videoSprite.yScale * -1;
-//
-//    [videoSprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:self.textureArray timePerFrame:(1.0/24.0)]]];
-//
-//    SKScene *videoScene = [SKScene sceneWithSize:videoSprite.size];
-//    videoScene.scaleMode = SKSceneScaleModeAspectFill;
-//    videoScene.backgroundColor = [UIColor clearColor];
-//    [videoScene addChild:videoSprite];
-//
-//    SCNScene *boxScene = [SCNScene sceneNamed:@"art.scnassets/box.scn"];
-//    SCNNode *planeNode = [boxScene.rootNode childNodeWithName:@"plane" recursively:true];
-//    planeNode.position = SCNVector3Make(hitResult.worldTransform.columns[3].x, hitResult.worldTransform.columns[3].y, hitResult.worldTransform.columns[3].z);
-//    SCNMaterial *material = [[SCNMaterial alloc] init];
-//    material.diffuse.contents = videoScene;
-//    planeNode.geometry.materials = @[material];
-//    SCNBillboardConstraint *aConstraint = [SCNBillboardConstraint billboardConstraint];
-//    planeNode.constraints = @[aConstraint];
-//    [self.sceneView.scene.rootNode addChildNode:planeNode];
-//
+    [self performSelector:@selector(showBedroomInstruction) withObject:nil afterDelay:20.0];
+
+    
+    SCNScene *scene = [SCNScene sceneNamed:@"art.scnassets/ship.scn"];
+    SCNNode *ship = [scene.rootNode childNodeWithName:@"ship" recursively:YES];
+
+    
+    matrix_float4x4 translation = matrix_identity_float4x4;
+    translation.columns[3][2] = -2; // Translate 10 cm in front of the camera
+    ship.simdTransform = matrix_multiply(self.sceneView.session.currentFrame.camera.transform, translation);
+
+
+    self.sceneView.scene = scene;
+
+//    SCNAction *action = [SCNAction rotateByX:(2 * 3.14) y: 0 z:0 duration:10];
+//    SCNAction *repAction = [SCNAction repeatActionForever:action];
+//    SCNNode *ship = [scene.rootNode childNodeWithName:@"ship" recursively:YES];
+//    [ship runAction:repAction forKey:@"myrotate"];
+    
 }
 
-- (void)timerDone {
-    self.canShowRope = YES;
+- (void)showBedroomInstruction {
+    self.instructionLabel.text = @"Go back to your bedroom.";
+    self.instructionLabel.hidden = NO;
+    
+    self.videoTimer = [NSTimer scheduledTimerWithTimeInterval:10.0
+                                                         target:self
+                                                       selector:@selector(videoTimerDone)
+                                                       userInfo:nil
+                                                        repeats:NO];
+    SCNScene *scene = [SCNScene new];
+    self.sceneView.scene = scene;
+    
+
 }
+
+- (void)videoTimerDone {
+    [self.audioPlayer pause];
+    
+    HRFaceTimeViewController *ftVC = [[HRFaceTimeViewController alloc] init];
+    ftVC.noDecline = YES;
+    [self.navigationController pushViewController:ftVC animated:NO];
+}
+
 
 @end
