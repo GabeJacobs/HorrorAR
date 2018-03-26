@@ -36,7 +36,7 @@
     self.sceneView.delegate = self;
     self.sceneView.session.delegate = self;
     
-//    [self turnTorchOn:YES];
+    [self turnTorchOn:YES];
     [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
     
     NSURL *audioPath = [[NSBundle mainBundle] URLForResource:@"hallowed" withExtension:@"mp3"];
@@ -47,10 +47,6 @@
     
     self.planes = [NSMutableDictionary new];
 
-    self.cameraOverlay = [[UIView alloc] initWithFrame:self.view.frame];
-    self.cameraOverlay.backgroundColor = [UIColor colorWithWhite:0 alpha:.25];
-    [self.view addSubview:self.cameraOverlay];
-    
     self.instructionLabel = [[UILabel alloc] initWithFrame:self.view.bounds];
     self.instructionLabel.frame = CGRectMake(22, 0, self.view.frame.size.width - 44, self.view.frame.size.height - 30);
     self.instructionLabel.numberOfLines = 2;
@@ -61,14 +57,24 @@
     self.instructionLabel.hidden = NO;
     [self.view addSubview:self.instructionLabel];
     
-    [self performSelector:@selector(hideInstruction) withObject:nil afterDelay:5.0];
+    [self performSelector:@selector(hideInstruction) withObject:nil afterDelay:3.0];
     [self performSelector:@selector(showFirstARObject) withObject:nil afterDelay:17.0];
+    [self performSelector:@selector(showGlitch1) withObject:nil afterDelay:4.0];
+
+    self.cameraOverlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"glitch"]];
+    self.cameraOverlay.frame = self.view.frame;
+    self.cameraOverlay.hidden = YES;
+    [self.view addSubview:self.cameraOverlay];
+    
+    
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.sceneView.session runWithConfiguration:self.arConfig];
+    
+    [self.view bringSubviewToFront:self.cameraOverlay];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -85,6 +91,46 @@
 
 - (void)hideInstruction {
     self.instructionLabel.hidden = YES;
+}
+
+- (void)showGlitch1 {
+    self.cameraOverlay.hidden = NO;
+    NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch1" withExtension:@"mp3"];
+    self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
+    [self.glitchPlayer prepareToPlay];
+    [self.glitchPlayer play];
+    [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
+    [self performSelector:@selector(showGlitch2) withObject:nil afterDelay:4];
+
+}
+
+- (void)showGlitch2 {
+    self.cameraOverlay.image = [UIImage imageNamed:@"glitch2"];
+    self.cameraOverlay.hidden = NO;
+    NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch2" withExtension:@"mp3"];
+    self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
+    [self.glitchPlayer prepareToPlay];
+    [self.glitchPlayer play];
+    [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
+    [self performSelector:@selector(showGlitch3) withObject:nil afterDelay:5];
+
+}
+
+- (void)showGlitch3 {
+    self.cameraOverlay.image = [UIImage imageNamed:@"glitch3"];
+    self.cameraOverlay.hidden = NO;
+    NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch3" withExtension:@"mp3"];
+    self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
+    [self.glitchPlayer prepareToPlay];
+    [self.glitchPlayer play];
+    [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
+    [self performSelector:@selector(showGlitch1) withObject:nil afterDelay:6];
+
+}
+
+
+- (void)hideGlitch {
+    self.cameraOverlay.hidden = YES;
 }
 
 #pragma mark - ARSCNViewDelegate
@@ -152,23 +198,30 @@
             [device unlockForConfiguration];
         }
     }
+
     
 }
 
 - (void)showFirstARObject {
-    NSLog(@"timer done");
+    NSLog(@"showing first AR");
     
     [self performSelector:@selector(showBedroomInstruction) withObject:nil afterDelay:20.0];
 
     
-    SCNScene *scene = [SCNScene sceneNamed:@"art.scnassets/ship.scn"];
+    SCNScene *scene = [SCNScene sceneNamed:@"art.scnassets/boogie.scn"];
+    SCNNode *boogie = [scene.rootNode childNodeWithName:@"boogie" recursively:YES];
     SCNNode *ship = [scene.rootNode childNodeWithName:@"ship" recursively:YES];
 
     
     matrix_float4x4 translation = matrix_identity_float4x4;
     translation.columns[3][2] = -2; // Translate 10 cm in front of the camera
+    boogie.simdTransform = matrix_multiply(self.sceneView.session.currentFrame.camera.transform, translation);
     ship.simdTransform = matrix_multiply(self.sceneView.session.currentFrame.camera.transform, translation);
 
+
+    SCNAction *rotate = [SCNAction rotateByX:0 y:(2 * 3.14) z:0 duration:10];
+    SCNAction *reprotate = [SCNAction repeatAction:rotate count:1000];
+    [boogie runAction:reprotate forKey:@"myrotate"];
 
     self.sceneView.scene = scene;
 

@@ -7,7 +7,7 @@ target 'HorrorAR' do
 
   # Pods for HorrorAR
   pod 'FastttCamera'
-  
+   
   target 'HorrorARTests' do
     inherit! :search_paths
     # Pods for testing

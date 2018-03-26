@@ -34,6 +34,7 @@
 @property (nonatomic,strong) UILabel *instructionLabel;
 
 @property (nonatomic,strong) AVAudioPlayer *audioPlayer;
-@property (nonatomic,strong) UIView *cameraOverlay;
+@property (nonatomic,strong) AVAudioPlayer *glitchPlayer;
+@property (nonatomic,strong) UIImageView *cameraOverlay;
 
 @end
