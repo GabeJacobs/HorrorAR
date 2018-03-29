@@ -8,6 +8,7 @@
 #import "HRCamViewController.h"
 #import <math.h>
 #import "HRFaceTimeViewController.h"
+#import <Photos/Photos.h>
 
 @interface HRCamViewController () <ARSCNViewDelegate, ARSessionDelegate>
 
@@ -18,6 +19,22 @@
 
 - (void)viewDidLoad {
     
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        PHFetchResult *fetchResultForAssetCollection = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum
+                                                                                                subtype:PHAssetCollectionSubtypeSmartAlbumSelfPortraits
+                                                                                                options:nil];
+        PHAssetCollection *assetCollection = fetchResultForAssetCollection.firstObject;
+        PHFetchResult *fetchResultForAsset = [PHAsset fetchAssetsInAssetCollection:assetCollection
+                                                                           options:nil];
+        
+        PHAsset *asset = fetchResultForAsset.firstObject;
+        PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+        options.synchronous = YES;
+        [[PHImageManager defaultManager] requestImageDataForAsset:asset options:options resultHandler:^(NSData * __nullable imageData, NSString * __nullable dataUTI, UIImageOrientation orientation, NSDictionary * __nullable info) {
+            self.selfie = [UIImage imageWithData:imageData];
+        }];
+    }];
+
     [super viewDidLoad];
     self.planes = [NSMutableDictionary dictionary];
     self.planesArrary = [NSMutableArray array];
@@ -37,12 +54,12 @@
     self.sceneView.delegate = self;
     self.sceneView.session.delegate = self;
     
-//    [self turnTorchOn:YES];
+//  [self turnTorchOn:YES];
     [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
     
     NSURL *audioPath = [[NSBundle mainBundle] URLForResource:@"hallowed" withExtension:@"mp3"];
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioPath error:nil];
-    self.audioPlayer.delegate = self;
+//    self.audioPlayer.delegate = self;
     [self.audioPlayer prepareToPlay];
     [self.audioPlayer play];
     
@@ -76,7 +93,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.sceneView.session runWithConfiguration:self.arConfig];
-    
     [self.view bringSubviewToFront:self.cameraOverlay];
 }
 
@@ -176,11 +192,10 @@
             [device unlockForConfiguration];
         }
     }
-
-    
 }
 
 - (void)showFirstARObject {
+    
     
 
     if([self.planesArrary count] > 0){
@@ -191,7 +206,7 @@
         Plane *plane = [self.planesArrary lastObject];
         self.paperNode.position = SCNVector3Make(plane.anchor.transform.columns[3].x, plane.anchor.transform.columns[3].y, plane.anchor.transform.columns[3].z);
         self.paperNode.scale  = SCNVector3Make(.04, .04, .04);
-        self.paperNode.eulerAngles = SCNVector3Make(0, M_PI_2, 0);
+        self.paperNode.eulerAngles = SCNVector3Make(0, -M_PI/3, 0);
         [self.sceneView.scene.rootNode addChildNode:self.paperNode];
     } else{
         [self performSelector:@selector(showFirstARObject) withObject:nil afterDelay:2];

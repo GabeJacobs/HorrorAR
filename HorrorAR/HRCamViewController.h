@@ -41,5 +41,6 @@
 
 
 @property (nonatomic, strong) SCNNode *paperNode;
+@property (nonatomic, strong) UIImage *selfie;
 
 @end
