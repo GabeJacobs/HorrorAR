@@ -1,8 +1,9 @@
 //
-//  HRCamViewController.h
-//  
+//  HRFinalCamViewController.h
+//  HorrorAR
 //
-//  Created by Gabe Jacobs on 3/15/18.
+//  Created by Gabe Jacobs on 3/27/18.
+//  Copyright © 2018 Gabe Jacobs. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -10,8 +11,9 @@
 #import <ARKit/ARKit.h>
 #import "Plane.h"
 #import <AVFoundation/AVFoundation.h>
+#import <UIKit/UIKit.h>
 
-@interface HRCamViewController : UIViewController
+@interface HRFinalCamViewController : UIViewController
 
 @property (nonatomic) BOOL canShowRope;
 @property (nonatomic, strong) NSTimer *ropeTimer;
@@ -21,8 +23,6 @@
 
 @property (nonatomic, strong) ARSCNView *sceneView;
 @property (nonatomic, strong) NSMutableDictionary *planes;
-@property (nonatomic, strong) NSMutableArray *planesArrary;
-@property (nonatomic, strong) ARAnchor *bathroomAnchor;
 @property (nonatomic, strong) NSMutableArray *anchors;
 
 @property (nonatomic) ARTrackingState currentTrackingState;
@@ -38,8 +38,5 @@
 @property (nonatomic,strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic,strong) AVAudioPlayer *glitchPlayer;
 @property (nonatomic,strong) UIImageView *cameraOverlay;
-
-
-@property (nonatomic, strong) SCNNode *paperNode;
 
 @end

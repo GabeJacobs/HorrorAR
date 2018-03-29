@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		001FC93020618A400067132C /* Plane.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FC92E20618A3E0067132C /* Plane.m */; };
+		003F837B206AA60300FD5FF7 /* HRFinalCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003F837A206AA60300FD5FF7 /* HRFinalCamViewController.m */; };
 		0048267E2056EA6500D1AA57 /* facetime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0048267D2056EA6500D1AA57 /* facetime.mp3 */; };
 		004826802057099400D1AA57 /* demo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0048267F2057099400D1AA57 /* demo.mov */; };
 		0051362020616AD0000065F1 /* HorrorPNG.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0051361F20616AD0000065F1 /* HorrorPNG.atlas */; };
@@ -55,6 +56,8 @@
 /* Begin PBXFileReference section */
 		001FC92E20618A3E0067132C /* Plane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plane.m; sourceTree = "<group>"; };
 		001FC92F20618A3F0067132C /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plane.h; sourceTree = "<group>"; };
+		003F8379206AA60300FD5FF7 /* HRFinalCamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRFinalCamViewController.h; sourceTree = "<group>"; };
+		003F837A206AA60300FD5FF7 /* HRFinalCamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRFinalCamViewController.m; sourceTree = "<group>"; };
 		0048267D2056EA6500D1AA57 /* facetime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = facetime.mp3; path = Assets/Sounds/facetime.mp3; sourceTree = SOURCE_ROOT; };
 		0048267F2057099400D1AA57 /* demo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = demo.mov; path = Assets/Video/demo.mov; sourceTree = SOURCE_ROOT; };
 		0051361F20616AD0000065F1 /* HorrorPNG.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HorrorPNG.atlas; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 				008EDF402056D4D500AADA87 /* HRMainNavController.m */,
 				00620529206030AB00A743F1 /* HRCamViewController.h */,
 				0062052A206030AB00A743F1 /* HRCamViewController.m */,
+				003F8379206AA60300FD5FF7 /* HRFinalCamViewController.h */,
+				003F837A206AA60300FD5FF7 /* HRFinalCamViewController.m */,
 				001FC92F20618A3F0067132C /* Plane.h */,
 				001FC92E20618A3E0067132C /* Plane.m */,
 				008EDF0D2056C9E000AADA87 /* Main.storyboard */,
@@ -526,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				008EDF172056C9E000AADA87 /* main.m in Sources */,
+				003F837B206AA60300FD5FF7 /* HRFinalCamViewController.m in Sources */,
 				0062052B206030AB00A743F1 /* HRCamViewController.m in Sources */,
 				008EDF412056D4D500AADA87 /* HRMainNavController.m in Sources */,
 				008EDF072056C9DF00AADA87 /* AppDelegate.m in Sources */,
@@ -695,13 +701,16 @@
 			baseConfigurationReference = 70D162E353CD7579EE47E405 /* Pods-HorrorAR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZC9XKUHSQ8;
 				INFOPLIST_FILE = HorrorAR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mssngpeces.HorrorAR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mssngpeces.HorrorAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -711,13 +720,15 @@
 			baseConfigurationReference = D64DBFC4C9BE292D729F72E8 /* Pods-HorrorAR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZC9XKUHSQ8;
 				INFOPLIST_FILE = HorrorAR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mssngpeces.HorrorAR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mssngpeces.HorrorAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
