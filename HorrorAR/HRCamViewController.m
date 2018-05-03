@@ -53,8 +53,7 @@
     self.sceneView.autoenablesDefaultLighting = YES;
     self.sceneView.delegate = self;
     self.sceneView.session.delegate = self;
-    
-//  [self turnTorchOn:YES];
+    [self turnTorchOn:YES];
     [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
     
     NSURL *audioPath = [[NSBundle mainBundle] URLForResource:@"hallowed" withExtension:@"mp3"];

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HorrorAR/HRIntroViewController.m"
-            timestampString = "544031334.757789"
+            timestampString = "547074824.1568201"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "-showWithoutTap:"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HorrorAR/HRIntroViewController.m"
-            timestampString = "544031334.757846"
+            timestampString = "547074824.156907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "-showWithoutTap:"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HorrorAR/HRIntroViewController.m"
-            timestampString = "544031334.757892"
+            timestampString = "547074824.156956"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "-viewDidAppear:"
             landmarkType = "7">
          </BreakpointContent>

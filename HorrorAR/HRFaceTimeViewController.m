@@ -142,7 +142,7 @@
                      }];
     
 //    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"mov"];
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"demo-short" ofType:@"mov"];
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"great" ofType:@"MOV"];
 
     NSURL *fileURL = [NSURL fileURLWithPath:filepath];
     AVPlayerItem *item = [AVPlayerItem playerItemWithURL:fileURL];

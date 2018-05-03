@@ -9,8 +9,9 @@
 #import "HRIntroViewController.h"
 #import "HRFaceTimeViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface HRIntroViewController ()
+@interface HRIntroViewController () <CLLocationManagerDelegate>
 
 @end
 
@@ -51,9 +52,9 @@
 
 - (void)tappedScreen {
     self.mainAction.userInteractionEnabled = NO;
-    self.instructionStep = 4;
-//    self.instructionStep++;
-    if(self.instructionStep == 4){
+//    self.instructionStep = 4;
+    self.instructionStep++;
+    if(self.instructionStep == 3){
         self.mainAction.userInteractionEnabled = YES;
     }
     
@@ -71,7 +72,7 @@
 }
 
 - (void)startInstructions {
-    [self requestCameraPermissionsIfNeeded];
+    [self requestPermissions];
     
     [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
@@ -84,10 +85,8 @@
 
 - (void)showInstruction:(int)step{
     if(step == 1){
-        self.instructionLabel.text = @"Use headphones.\nTurn up the volume on your device.";
+        self.instructionLabel.text = @"Go to your bedroom. Use headphones.";
     } else if (step == 2) {
-        self.instructionLabel.text = @"Go to your bedroom.\nPlace your phone flat on the floor. Screen up.";
-    } else if (step == 3) {
         self.instructionLabel.text = @"Tap to begin.";
     }
     [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionCurveEaseIn
@@ -110,7 +109,7 @@
     [self.navigationController pushViewController:ftVC animated:NO];
 }
 
-- (void)requestCameraPermissionsIfNeeded {
+- (void)requestPermissions {
     
     // check camera authorization status
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
@@ -125,7 +124,7 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
                     if(granted) {
-                        // do camera intensive stuff
+                        [self requestGPS];
                     } else {
 //                        [self notifyUserOfCameraAccessDenial];
                     }
@@ -143,6 +142,10 @@
         default:
             break;
     }
+}
+
+- (void)requestGPS {
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
