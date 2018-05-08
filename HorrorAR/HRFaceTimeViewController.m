@@ -103,7 +103,7 @@
     return UIStatusBarStyleLightContent;
 }
 
--(void)playRing {
+- (void)playRing {
     [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
 
     NSURL *audioPath = [[NSBundle mainBundle] URLForResource:@"facetime" withExtension:@"mp3"];
@@ -113,14 +113,24 @@
     [self.audioPlayer play];
 }
 
+- (void)playanswer {
+    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
+    
+    NSURL *audioPath = [[NSBundle mainBundle] URLForResource:@"facetimeanswer" withExtension:@"wav"];
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioPath error:nil];
+    self.audioPlayer.delegate = self;
+    [self.audioPlayer prepareToPlay];
+    [self.audioPlayer play];
+}
+
 - (void)tappedAccept {
     [self.audioPlayer pause];
+    [self playanswer];
     [self performSelector:@selector(acceptedFT) withObject:nil afterDelay:.75];
 }
 
 - (void)acceptedFT {
-//    self.camera.view.layer.anchorPoint = CGPointMake(.5,0);
-    
+//  self.camera.view.layer.anchorPoint = CGPointMake(.5,0);
     
     self.camera.view.frame = CGRectMake(self.view.frame.size.width - (self.view.frame.size.width*.25) - 15, self.view.frame.size.height - (self.view.frame.size.height*.25), self.view.frame.size.width*.25, self.view.frame.size.height *.2);
     self.videoLayer = [[UIView alloc] initWithFrame:self.view.frame];
@@ -141,8 +151,15 @@
 
                      }];
     
+    NSString *filepath;
+    if(self.trackingThem == YES){
+        if([self.location isEqualToString:@"NY"]){
+            filepath = [[NSBundle mainBundle] pathForResource:@"ny2-cut" ofType:@"mov"];
+        }
+    } else{
+        filepath = [[NSBundle mainBundle] pathForResource:@"great" ofType:@"MOV"];
+    }
 //    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"mov"];
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"great" ofType:@"MOV"];
 
     NSURL *fileURL = [NSURL fileURLWithPath:filepath];
     AVPlayerItem *item = [AVPlayerItem playerItemWithURL:fileURL];

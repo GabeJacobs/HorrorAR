@@ -9,7 +9,6 @@
 #import "HRIntroViewController.h"
 #import "HRFaceTimeViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import <CoreLocation/CoreLocation.h>
 
 @interface HRIntroViewController () <CLLocationManagerDelegate>
 
@@ -63,12 +62,17 @@
                          self.instructionLabel.alpha = 0.0;
                      }
                      completion:^(BOOL finished) {
-                         if(self.instructionStep == 4){
-                             [self performSelector:@selector(begin) withObject:nil afterDelay:2.0];
-                         } else {
-                             [self showInstruction:self.instructionStep];
-                         }
+                         [self performSelectorOnMainThread:@selector(procceedStep) withObject:nil waitUntilDone:YES];
                      }];
+}
+
+- (void)procceedStep {
+    if(self.instructionStep == 3){
+        [self performSelector:@selector(begin) withObject:nil afterDelay:2.0];
+    } else {
+        NSLog(@"%d", self.instructionStep);
+        [self showInstruction:self.instructionStep];
+    }
 }
 
 - (void)startInstructions {
@@ -85,7 +89,7 @@
 
 - (void)showInstruction:(int)step{
     if(step == 1){
-        self.instructionLabel.text = @"Go to your bedroom. Use headphones.";
+        self.instructionLabel.text = @"Go to your bedroom.\nUse headphones.";
     } else if (step == 2) {
         self.instructionLabel.text = @"Tap to begin.";
     }
@@ -115,7 +119,7 @@
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     switch (authStatus) {
         case AVAuthorizationStatusAuthorized: { // camera authorized
-            // do camera intensive stuff
+            [self requestGPS];
         }
             break;
         case AVAuthorizationStatusNotDetermined: { // request authorization
@@ -145,19 +149,24 @@
 }
 
 - (void)requestGPS {
-    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    self.locationManager.distanceFilter = 500; // meters
+    [self.locationManager requestWhenInUseAuthorization];
 }
 
+
 - (void)viewDidAppear:(BOOL)animated{
-    if(self.instructionStep == 4){
+    if(self.instructionStep == 3){
+        [self showWithoutTap:3];
+    } else if(self.instructionStep == 4){
         [self showWithoutTap:4];
-    } else if(self.instructionStep == 5){
-        [self showWithoutTap:5];
     }
 }
 
 - (void)showWithoutTap:(int)step{
-    if(step == 4){
+    if(step == 3){
         self.instructionStep++;
         self.instructionLabel.text = @"Pick up the phone.";
         self.mainAction.userInteractionEnabled = NO;
@@ -167,7 +176,7 @@
                          }
                          completion:^(BOOL finished) {
                              
-                             [UIView animateWithDuration:1.0 delay:2.5 options:UIViewAnimationOptionCurveEaseIn
+                             [UIView animateWithDuration:1.0 delay:1.7 options:UIViewAnimationOptionCurveEaseIn
                                               animations:^{
                                                   self.instructionLabel.alpha = 0.0;
                                               }
@@ -177,7 +186,7 @@
                                               }];
                          }];
     } else  {
-        self.instructionLabel.text = @"You are not the one in control...";
+        self.instructionLabel.text = @"You are not the one in control.";
         self.mainAction.userInteractionEnabled = NO;
         [UIView animateWithDuration:1.0 delay:1.5 options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
@@ -185,7 +194,7 @@
                          }
                          completion:^(BOOL finished) {
                              
-                             [UIView animateWithDuration:1.0 delay:2.5 options:UIViewAnimationOptionCurveEaseIn
+                             [UIView animateWithDuration:1.0 delay:1.7 options:UIViewAnimationOptionCurveEaseIn
                                               animations:^{
                                                   self.instructionLabel.alpha = 0.0;
                                               }

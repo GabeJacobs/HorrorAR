@@ -10,7 +10,7 @@
 #import "HRFaceTimeViewController.h"
 #import <Photos/Photos.h>
 
-@interface HRCamViewController () <ARSCNViewDelegate, ARSessionDelegate>
+@interface HRCamViewController () <ARSCNViewDelegate, ARSessionDelegate, CLLocationManagerDelegate>
 
 @end
 
@@ -18,22 +18,6 @@
 
 
 - (void)viewDidLoad {
-    
-    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-        PHFetchResult *fetchResultForAssetCollection = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum
-                                                                                                subtype:PHAssetCollectionSubtypeSmartAlbumSelfPortraits
-                                                                                                options:nil];
-        PHAssetCollection *assetCollection = fetchResultForAssetCollection.firstObject;
-        PHFetchResult *fetchResultForAsset = [PHAsset fetchAssetsInAssetCollection:assetCollection
-                                                                           options:nil];
-        
-        PHAsset *asset = fetchResultForAsset.firstObject;
-        PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-        options.synchronous = YES;
-        [[PHImageManager defaultManager] requestImageDataForAsset:asset options:options resultHandler:^(NSData * __nullable imageData, NSString * __nullable dataUTI, UIImageOrientation orientation, NSDictionary * __nullable info) {
-            self.selfie = [UIImage imageWithData:imageData];
-        }];
-    }];
 
     [super viewDidLoad];
     self.planes = [NSMutableDictionary dictionary];
@@ -75,7 +59,8 @@
     [self.view addSubview:self.instructionLabel];
     
     [self performSelector:@selector(hideInstruction) withObject:nil afterDelay:3.0];
-    [self performSelector:@selector(showFirstARObject) withObject:nil afterDelay:19.0];
+    [self performSelector:@selector(allowPlanes) withObject:nil afterDelay:9.0];
+    [self performSelector:@selector(showFirstARObject) withObject:nil afterDelay:20.0];
     [self performSelector:@selector(showGlitch1) withObject:nil afterDelay:4.0];
 
     self.cameraOverlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"glitch"]];
@@ -83,10 +68,21 @@
     self.cameraOverlay.hidden = YES;
     [self.view addSubview:self.cameraOverlay];
     
+    self.maskOverlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Mask"]];
+    self.maskOverlay.frame = self.view.frame;
+    [self.view addSubview:self.maskOverlay];
+    
     SCNScene *paperScene = [SCNScene sceneNamed:@"art.scnassets/paper.scn"];
     self.paperNode = [paperScene.rootNode childNodeWithName:@"paperSheet" recursively:YES];
 
+    [super viewDidLoad];
     
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.geocoder = [[CLGeocoder alloc] init];
+    [self.locationManager startUpdatingLocation];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -109,38 +105,42 @@
 }
 
 - (void)showGlitch1 {
-    self.cameraOverlay.hidden = NO;
-    NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch1" withExtension:@"mp3"];
-    self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
-    [self.glitchPlayer prepareToPlay];
-    [self.glitchPlayer play];
-    [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
-    [self performSelector:@selector(showGlitch2) withObject:nil afterDelay:4];
-
+    if(!self.finished){
+        self.cameraOverlay.hidden = NO;
+        NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch1" withExtension:@"mp3"];
+        self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
+        [self.glitchPlayer prepareToPlay];
+        [self.glitchPlayer play];
+        [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
+        [self performSelector:@selector(showGlitch2) withObject:nil afterDelay:4];
+    }
 }
 
 - (void)showGlitch2 {
-    self.cameraOverlay.image = [UIImage imageNamed:@"glitch2"];
-    self.cameraOverlay.hidden = NO;
-    NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch2" withExtension:@"mp3"];
-    self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
-    [self.glitchPlayer prepareToPlay];
-    [self.glitchPlayer play];
-    [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
-    [self performSelector:@selector(showGlitch3) withObject:nil afterDelay:5];
+    if(!self.finished){
+        self.cameraOverlay.image = [UIImage imageNamed:@"glitch2"];
+        self.cameraOverlay.hidden = NO;
+        NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch2" withExtension:@"mp3"];
+        self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
+        [self.glitchPlayer prepareToPlay];
+        [self.glitchPlayer play];
+        [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
+        [self performSelector:@selector(showGlitch3) withObject:nil afterDelay:5];
+    }
 
 }
 
 - (void)showGlitch3 {
-    self.cameraOverlay.image = [UIImage imageNamed:@"glitch3"];
-    self.cameraOverlay.hidden = NO;
-    NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch3" withExtension:@"mp3"];
-    self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
-    [self.glitchPlayer prepareToPlay];
-    [self.glitchPlayer play];
-    [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
-    [self performSelector:@selector(showGlitch1) withObject:nil afterDelay:6];
-
+    if(!self.finished){
+        self.cameraOverlay.image = [UIImage imageNamed:@"glitch3"];
+        self.cameraOverlay.hidden = NO;
+        NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch3" withExtension:@"mp3"];
+        self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
+        [self.glitchPlayer prepareToPlay];
+        [self.glitchPlayer play];
+        [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
+        [self performSelector:@selector(showGlitch1) withObject:nil afterDelay:6];
+    }
 }
 - (void)hideGlitch {
     self.cameraOverlay.hidden = YES;
@@ -152,10 +152,12 @@
     if (![anchor isKindOfClass:[ARPlaneAnchor class]]) {
         return;
     }
-    Plane *plane = [[Plane alloc] initWithAnchor: (ARPlaneAnchor *)anchor isHidden: YES];
-    [self.planes setObject:plane forKey:anchor.identifier];
-    [self.planesArrary addObject:plane];
-    [node addChildNode:plane];
+    if(self.allowPlanesToLoad){
+        Plane *plane = [[Plane alloc] initWithAnchor: (ARPlaneAnchor *)anchor isHidden: YES];
+        [self.planes setObject:plane forKey:anchor.identifier];
+        [self.planesArrary addObject:plane];
+        [node addChildNode:plane];
+    }
 }
 
 - (void)renderer:(id <SCNSceneRenderer>)renderer didUpdateNode:(SCNNode *)node forAnchor:(ARAnchor *)anchor {
@@ -194,9 +196,6 @@
 }
 
 - (void)showFirstARObject {
-    
-    
-
     if([self.planesArrary count] > 0){
         [self performSelector:@selector(showBedroomInstruction) withObject:nil afterDelay:20.0];
 
@@ -208,8 +207,26 @@
         self.paperNode.eulerAngles = SCNVector3Make(0, -M_PI/3, 0);
         [self.sceneView.scene.rootNode addChildNode:self.paperNode];
     } else{
+        NSLog(@"STILL SEARCHING");
+        if(![self.instructionLabel.text isEqualToString:@"Look down"]){
+            [self showFloorInstruction];
+        }
         [self performSelector:@selector(showFirstARObject) withObject:nil afterDelay:2];
     }
+}
+
+- (void)showFloorInstruction {
+    self.instructionLabel.text = @"Look down";
+    self.instructionLabel.hidden = NO;
+    
+    self.videoTimer = [NSTimer scheduledTimerWithTimeInterval:8.0
+                                                         target:self
+                                                       selector:@selector(hideInstruction)
+                                                       userInfo:nil
+                                                        repeats:NO];
+
+    
+
 }
 
 - (void)showBedroomInstruction {
@@ -217,23 +234,56 @@
     self.instructionLabel.hidden = NO;
     
     self.videoTimer = [NSTimer scheduledTimerWithTimeInterval:10.0
-                                                         target:self
-                                                       selector:@selector(videoTimerDone)
-                                                       userInfo:nil
-                                                        repeats:NO];
+                                                       target:self
+                                                     selector:@selector(videoTimerDone)
+                                                     userInfo:nil
+                                                      repeats:NO];
     SCNScene *scene = [SCNScene new];
     self.sceneView.scene = scene;
     
-
+    
 }
 
 - (void)videoTimerDone {
     [self.audioPlayer pause];
+    self.finished = YES;
     
     HRFaceTimeViewController *ftVC = [[HRFaceTimeViewController alloc] init];
+    ftVC.trackingThem = YES;
     ftVC.noDecline = YES;
+    if([self.postalCode hasPrefix:@"1"]){
+        ftVC.location = @"NY";
+    }
     [self.navigationController pushViewController:ftVC animated:NO];
 }
 
+- (void)allowPlanes {
+    self.allowPlanesToLoad = YES;
+}
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    // this delegate method is constantly invoked every some miliseconds.
+    // we only need to receive the first response, so we skip the others.
+    if (self.locationFetchCounter > 0) return;
+   self. locationFetchCounter++;
+    
+    // after we have current coordinates, we use this method to fetch the information data of fetched coordinate
+    [self.geocoder reverseGeocodeLocation:[locations lastObject] completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placemark = [placemarks lastObject];
+        
+//        NSString *street = placemark.thoroughfare;
+//        NSString *city = placemark.locality;
+          NSString *posCode = placemark.postalCode;
+//        NSString *country = placemark.country;
+        
+        self.postalCode = posCode;
+        
+        // stopping locationManager from fetching again
+        [self.locationManager stopUpdatingLocation];
+    }];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"failed to fetch current location : %@", error);
+}
 @end

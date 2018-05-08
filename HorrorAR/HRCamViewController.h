@@ -10,6 +10,7 @@
 #import <ARKit/ARKit.h>
 #import "Plane.h"
 #import <AVFoundation/AVFoundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface HRCamViewController : UIViewController
 
@@ -38,9 +39,19 @@
 @property (nonatomic,strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic,strong) AVAudioPlayer *glitchPlayer;
 @property (nonatomic,strong) UIImageView *cameraOverlay;
+@property (nonatomic,strong) UIImageView *maskOverlay;
 
 
 @property (nonatomic, strong) SCNNode *paperNode;
 @property (nonatomic, strong) UIImage *selfie;
+
+@property (nonatomic) BOOL allowPlanesToLoad;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong)  CLGeocoder *geocoder;
+@property (nonatomic)  int locationFetchCounter;
+@property (nonatomic,strong) NSString *postalCode;
+
+@property (nonatomic) BOOL finished;
+
 
 @end

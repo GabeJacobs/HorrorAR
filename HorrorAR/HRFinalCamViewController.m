@@ -24,7 +24,7 @@
     [UIApplication.sharedApplication setIdleTimerDisabled:YES];
     
     self.arConfig = [ARWorldTrackingConfiguration new];
-    self.arConfig.planeDetection = ARPlaneDetectionHorizontal | ARPlaneDetectionVertical;
+    self.arConfig.planeDetection = ARPlaneDetectionHorizontal;
     
     self.sceneView = [[ARSCNView alloc] initWithFrame:self.view.frame];
     self.sceneView. debugOptions = ARSCNDebugOptionShowFeaturePoints;

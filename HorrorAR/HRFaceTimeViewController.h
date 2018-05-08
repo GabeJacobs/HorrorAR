@@ -22,6 +22,8 @@
 @property (nonatomic, strong) UILabel *acceptLabel;
 @property (nonatomic, strong) UILabel *declineLabel;
 @property (nonatomic) BOOL noDecline;
+@property (nonatomic) BOOL trackingThem;
+@property (nonatomic) NSString *location;
 
 @property (nonatomic, strong) UIView *videoLayer;
 @property (nonatomic) AVPlayer *videoPlayer;
