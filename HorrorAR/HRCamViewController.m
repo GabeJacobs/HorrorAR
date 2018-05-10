@@ -107,12 +107,12 @@
 - (void)showGlitch1 {
     if(!self.finished){
         self.cameraOverlay.hidden = NO;
-        NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch1" withExtension:@"mp3"];
+        NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch1" withExtension:@"wav"];
         self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
         [self.glitchPlayer prepareToPlay];
         [self.glitchPlayer play];
-        [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
-        [self performSelector:@selector(showGlitch2) withObject:nil afterDelay:4];
+        [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.4];
+        [self performSelector:@selector(showGlitch2) withObject:nil afterDelay:5];
     }
 }
 
@@ -120,27 +120,27 @@
     if(!self.finished){
         self.cameraOverlay.image = [UIImage imageNamed:@"glitch2"];
         self.cameraOverlay.hidden = NO;
-        NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch2" withExtension:@"mp3"];
+        NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch4" withExtension:@"wav"];
         self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
         [self.glitchPlayer prepareToPlay];
         [self.glitchPlayer play];
-        [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
-        [self performSelector:@selector(showGlitch3) withObject:nil afterDelay:5];
+        [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.4];
+        [self performSelector:@selector(showGlitch1) withObject:nil afterDelay:8];
     }
 
 }
 
 - (void)showGlitch3 {
-    if(!self.finished){
-        self.cameraOverlay.image = [UIImage imageNamed:@"glitch3"];
-        self.cameraOverlay.hidden = NO;
-        NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch3" withExtension:@"mp3"];
-        self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
-        [self.glitchPlayer prepareToPlay];
-        [self.glitchPlayer play];
-        [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
-        [self performSelector:@selector(showGlitch1) withObject:nil afterDelay:6];
-    }
+//    if(!self.finished){
+//        self.cameraOverlay.image = [UIImage imageNamed:@"glitch3"];
+//        self.cameraOverlay.hidden = NO;
+//        NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch3" withExtension:@"mp3"];
+//        self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
+//        [self.glitchPlayer prepareToPlay];
+//        [self.glitchPlayer play];
+//        [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.4];
+//        [self performSelector:@selector(showGlitch1) withObject:nil afterDelay:6];
+//    }
 }
 - (void)hideGlitch {
     self.cameraOverlay.hidden = YES;
@@ -233,13 +233,13 @@
     self.instructionLabel.text = @"Go back to your bedroom.";
     self.instructionLabel.hidden = NO;
     
-    self.videoTimer = [NSTimer scheduledTimerWithTimeInterval:10.0
+    self.videoTimer = [NSTimer scheduledTimerWithTimeInterval:11.5
                                                        target:self
                                                      selector:@selector(videoTimerDone)
                                                      userInfo:nil
                                                       repeats:NO];
-    SCNScene *scene = [SCNScene new];
-    self.sceneView.scene = scene;
+//    SCNScene *scene = [SCNScene new];
+//    self.sceneView.scene = scene;
     
     
 }
@@ -253,6 +253,12 @@
     ftVC.noDecline = YES;
     if([self.postalCode hasPrefix:@"1"]){
         ftVC.location = @"NY";
+    } else if([self.postalCode hasPrefix:@"90"]){
+        ftVC.location = @"LA";
+    } else if([self.postalCode hasPrefix:@"941"]){
+        ftVC.location = @"SF";
+    } else{
+        ftVC.location = @"";
     }
     [self.navigationController pushViewController:ftVC animated:NO];
 }

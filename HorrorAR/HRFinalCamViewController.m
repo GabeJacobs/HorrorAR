@@ -14,11 +14,12 @@
 
 @implementation HRFinalCamViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
 
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
     self.planes = [NSMutableDictionary dictionary];
+    self.planesArrary = [NSMutableArray array];
     self.anchors = [NSMutableArray array];
     
     [UIApplication.sharedApplication setIdleTimerDisabled:YES];
@@ -27,20 +28,19 @@
     self.arConfig.planeDetection = ARPlaneDetectionHorizontal;
     
     self.sceneView = [[ARSCNView alloc] initWithFrame:self.view.frame];
-    self.sceneView. debugOptions = ARSCNDebugOptionShowFeaturePoints;
+    
     [self.view addSubview:self.sceneView];
     SCNScene *scene = [SCNScene new];
     self.sceneView.scene = scene;
-    
+    self.sceneView.autoenablesDefaultLighting = YES;
     self.sceneView.delegate = self;
     self.sceneView.session.delegate = self;
-    
     [self turnTorchOn:YES];
     [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
     
-    NSURL *audioPath = [[NSBundle mainBundle] URLForResource:@"hallowed" withExtension:@"mp3"];
+    NSURL *audioPath = [[NSBundle mainBundle] URLForResource:@"strings" withExtension:@"mp3"];
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioPath error:nil];
-    self.audioPlayer.delegate = self;
+    //    self.audioPlayer.delegate = self;
     [self.audioPlayer prepareToPlay];
     [self.audioPlayer play];
     
@@ -56,109 +56,115 @@
     self.instructionLabel.hidden = NO;
     [self.view addSubview:self.instructionLabel];
     
-//    [self performSelector:@selector(hideInstruction) withObject:nil afterDelay:3.0];
-//    [self performSelector:@selector(showFirstARObject) withObject:nil afterDelay:17.0];
-//    [self performSelector:@selector(showGlitch1) withObject:nil afterDelay:4.0];
-//    
-    self.cameraOverlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"glitch"]];
+    [self performSelector:@selector(hideInstruction) withObject:nil afterDelay:3.0];
+    [self performSelector:@selector(allowPlanes) withObject:nil afterDelay:9.0];
+    [self performSelector:@selector(showFirstARObject) withObject:nil afterDelay:10.0];
+    
+    self.cameraOverlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"scare1"]];
     self.cameraOverlay.frame = self.view.frame;
     self.cameraOverlay.hidden = YES;
     [self.view addSubview:self.cameraOverlay];
+    
+    self.maskOverlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Mask"]];
+    self.maskOverlay.frame = self.view.frame;
+    [self.view addSubview:self.maskOverlay];
+    
+    
+    SCNScene *paperScene = [SCNScene sceneNamed:@"art.scnassets/scare.scn"];
+    self.zombie = [paperScene.rootNode childNodeWithName:@"zombie" recursively:YES];
+    [super viewDidLoad];
+    
 
+    
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.sceneView.session runWithConfiguration:self.arConfig];
-    
     [self.view bringSubviewToFront:self.cameraOverlay];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
-    // Pause the view's session
     [self.sceneView.session pause];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
 }
 
 - (void)hideInstruction {
     self.instructionLabel.hidden = YES;
 }
 
-- (void)showGlitch1 {
-    self.cameraOverlay.hidden = NO;
-    NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch1" withExtension:@"mp3"];
-    self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
-    [self.glitchPlayer prepareToPlay];
-    [self.glitchPlayer play];
-    [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
-    [self performSelector:@selector(showGlitch2) withObject:nil afterDelay:4];
-    
+- (void)showScare1 {
+    if(!self.finished){
+        self.cameraOverlay.image = [UIImage imageNamed:@"scare1"];
+        self.cameraOverlay.hidden = NO;
+//        NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch1" withExtension:@"mp3"];
+//        self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
+//        [self.glitchPlayer prepareToPlay];
+//        [self.glitchPlayer play];
+        [self performSelector:@selector(hideScare) withObject:nil afterDelay:.35];
+        [self performSelector:@selector(showScare2) withObject:nil afterDelay:8];
+    }
 }
 
-- (void)showGlitch2 {
-    self.cameraOverlay.image = [UIImage imageNamed:@"glitch2"];
-    self.cameraOverlay.hidden = NO;
-    NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch2" withExtension:@"mp3"];
-    self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
-    [self.glitchPlayer prepareToPlay];
-    [self.glitchPlayer play];
-    [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
-    [self performSelector:@selector(showGlitch3) withObject:nil afterDelay:5];
+- (void)showScare2 {
+    if(!self.finished){
+        self.cameraOverlay.image = [UIImage imageNamed:@"scare2"];
+        self.cameraOverlay.hidden = NO;
+//        NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch2" withExtension:@"mp3"];
+//        self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
+//        [self.glitchPlayer prepareToPlay];
+//        [self.glitchPlayer play];
+        [self performSelector:@selector(hideScare) withObject:nil afterDelay:.35];
+        [self performSelector:@selector(showScare1) withObject:nil afterDelay:5];
+    }
     
 }
 
 - (void)showGlitch3 {
-    self.cameraOverlay.image = [UIImage imageNamed:@"glitch3"];
-    self.cameraOverlay.hidden = NO;
-    NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch3" withExtension:@"mp3"];
-    self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
-    [self.glitchPlayer prepareToPlay];
-    [self.glitchPlayer play];
-    [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
-    [self performSelector:@selector(showGlitch1) withObject:nil afterDelay:6];
-    
+//    if(!self.finished){
+//        self.cameraOverlay.image = [UIImage imageNamed:@"glitch3"];
+//        self.cameraOverlay.hidden = NO;
+//        NSURL *glitchPath = [[NSBundle mainBundle] URLForResource:@"glitch3" withExtension:@"mp3"];
+//        self.glitchPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:glitchPath error:nil];
+//        [self.glitchPlayer prepareToPlay];
+//        [self.glitchPlayer play];
+//        [self performSelector:@selector(hideGlitch) withObject:nil afterDelay:.75];
+//        [self performSelector:@selector(showGlitch1) withObject:nil afterDelay:6];
+//    }
 }
-
-
-- (void)hideGlitch {
+- (void)hideScare {
     self.cameraOverlay.hidden = YES;
 }
 
 #pragma mark - ARSCNViewDelegate
 
 - (void)renderer:(id <SCNSceneRenderer>)renderer didAddNode:(SCNNode *)node forAnchor:(ARAnchor *)anchor {
-
+    if (![anchor isKindOfClass:[ARPlaneAnchor class]]) {
+        return;
+    }
+    if(self.allowPlanesToLoad){
+        Plane *plane = [[Plane alloc] initWithAnchor: (ARPlaneAnchor *)anchor isHidden: YES];
+        [self.planes setObject:plane forKey:anchor.identifier];
+        [self.planesArrary addObject:plane];
+        [node addChildNode:plane];
+    }
 }
 
 - (void)renderer:(id <SCNSceneRenderer>)renderer didUpdateNode:(SCNNode *)node forAnchor:(ARAnchor *)anchor {
-
+    Plane *plane = [self.planes objectForKey:anchor.identifier];
+    if (plane == nil) {
+        return;
+    }
+    [plane update:(ARPlaneAnchor *)anchor];
 }
 
-- (void)session:(ARSession *)session didFailWithError:(NSError *)error {
-    // Present an error message to the user
-    
-}
 
-- (void)sessionWasInterrupted:(ARSession *)session {
-    // Inform the user that the session has been interrupted, for example, by presenting an overlay
-    
-}
-
-- (void)sessionInterruptionEnded:(ARSession *)session {
-    // Reset tracking and/or remove existing anchors if consistent tracking is required
-    
-}
-
-- (void) turnTorchOn: (bool) on {
-    
-    // check if flashlight available
+- (void)turnTorchOn:(bool) on {
     Class captureDeviceClass = NSClassFromString(@"AVCaptureDevice");
     if (captureDeviceClass != nil) {
         AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -167,46 +173,49 @@
             [device lockForConfiguration:nil];
             if (on) {
                 [device setTorchMode:AVCaptureTorchModeOn];
-                //torchIsOn = YES; //define as a variable/property if you need to know status
             } else {
                 [device setTorchMode:AVCaptureTorchModeOff];
-                //torchIsOn = NO;
             }
             [device unlockForConfiguration];
         }
     }
-    
-    
 }
 
 - (void)showFirstARObject {
-//    NSLog(@"showing first AR");
+    if([self.planesArrary count] > 0){
+        [self performSelector:@selector(showBedroomInstruction) withObject:nil afterDelay:20.0];
+
+        NSLog(@"showing first AR");
+
+        Plane *plane = [self.planesArrary lastObject];
+        self.zombie.position = SCNVector3Make(plane.anchor.transform.columns[3].x, plane.anchor.transform.columns[3].y, plane.anchor.transform.columns[3].z);
+        self.zombie.scale  = SCNVector3Make(.0065, .0065, .0065);
+        [self.sceneView.scene.rootNode addChildNode:self.zombie];
+        
+        [self performSelector:@selector(showScare1) withObject:nil afterDelay:6.0];
+
+        
+    } else{
+        NSLog(@"STILL SEARCHING");
+        if(![self.instructionLabel.text isEqualToString:@"Look down"]){
+            [self showFloorInstruction];
+        }
+        [self performSelector:@selector(showFirstARObject) withObject:nil afterDelay:2];
+    }
+}
+
+- (void)showFloorInstruction {
+//    self.instructionLabel.text = @"Look down";
+//    self.instructionLabel.hidden = NO;
 //
-//    [self performSelector:@selector(showBedroomInstruction) withObject:nil afterDelay:20.0];
+//    self.videoTimer = [NSTimer scheduledTimerWithTimeInterval:8.0
+//                                                       target:self
+//                                                     selector:@selector(hideInstruction)
+//                                                     userInfo:nil
+//                                                      repeats:NO];
 //
 //
-//    SCNScene *scene = [SCNScene sceneNamed:@"art.scnassets/boogie.scn"];
-//    SCNNode *boogie = [scene.rootNode childNodeWithName:@"boogie" recursively:YES];
-//    SCNNode *ship = [scene.rootNode childNodeWithName:@"ship" recursively:YES];
 //
-//
-//    matrix_float4x4 translation = matrix_identity_float4x4;
-//    translation.columns[3][2] = -2; // Translate 10 cm in front of the camera
-//    boogie.simdTransform = matrix_multiply(self.sceneView.session.currentFrame.camera.transform, translation);
-//    ship.simdTransform = matrix_multiply(self.sceneView.session.currentFrame.camera.transform, translation);
-//
-//
-//    SCNAction *rotate = [SCNAction rotateByX:0 y:(2 * 3.14) z:0 duration:10];
-//    SCNAction *reprotate = [SCNAction repeatAction:rotate count:1000];
-//    [boogie runAction:reprotate forKey:@"myrotate"];
-//
-//    self.sceneView.scene = scene;
-    
-    //    SCNAction *action = [SCNAction rotateByX:(2 * 3.14) y: 0 z:0 duration:10];
-    //    SCNAction *repAction = [SCNAction repeatActionForever:action];
-    //    SCNNode *ship = [scene.rootNode childNodeWithName:@"ship" recursively:YES];
-    //    [ship runAction:repAction forKey:@"myrotate"];
-    
 }
 
 - (void)showBedroomInstruction {
@@ -220,16 +229,18 @@
 //                                                      repeats:NO];
 //    SCNScene *scene = [SCNScene new];
 //    self.sceneView.scene = scene;
-    
-    
+//
+//
 }
 
 - (void)videoTimerDone {
-//    [self.audioPlayer pause];
-//
-//    HRFaceTimeViewController *ftVC = [[HRFaceTimeViewController alloc] init];
-//    ftVC.noDecline = YES;
-//    [self.navigationController pushViewController:ftVC animated:NO];
+    [self.audioPlayer pause];
+    self.finished = YES;
+    
+}
+
+- (void)allowPlanes {
+    self.allowPlanesToLoad = YES;
 }
 
 @end

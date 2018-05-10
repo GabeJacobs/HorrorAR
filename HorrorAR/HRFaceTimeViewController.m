@@ -8,6 +8,7 @@
 
 #import "HRFaceTimeViewController.h"
 #import "HRCamViewController.h"
+#import "HRFinalCamViewController.h"
 
 @interface HRFaceTimeViewController () <FastttCameraDelegate, AVAudioPlayerDelegate >
 
@@ -155,6 +156,12 @@
     if(self.trackingThem == YES){
         if([self.location isEqualToString:@"NY"]){
             filepath = [[NSBundle mainBundle] pathForResource:@"ny2-cut" ofType:@"mov"];
+        } else if([self.location isEqualToString:@"LA"]){
+            filepath = [[NSBundle mainBundle] pathForResource:@"la-cut" ofType:@"mov"];
+        } else if([self.location isEqualToString:@"SF"]){
+            filepath = [[NSBundle mainBundle] pathForResource:@"sf-cut" ofType:@"mov"];
+        } else {
+            filepath = [[NSBundle mainBundle] pathForResource:@"yw-cut" ofType:@"mov"];
         }
     } else{
         filepath = [[NSBundle mainBundle] pathForResource:@"great" ofType:@"MOV"];
@@ -182,9 +189,14 @@
 }
 
 - (void)itemDidFinishPlaying:(NSNotification *) notification {
-    
-    HRCamViewController *ARVC = [[HRCamViewController alloc] init];
-    [self.navigationController pushViewController:ARVC animated:NO];
+    if(self.trackingThem){
+        HRFinalCamViewController *ARVC = [[HRFinalCamViewController alloc] init];
+        [self.navigationController pushViewController:ARVC animated:NO];
+    } else{
+        HRCamViewController *ARVC = [[HRCamViewController alloc] init];
+        [self.navigationController pushViewController:ARVC animated:NO];
+    }
+
     
 }
 

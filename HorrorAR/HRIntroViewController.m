@@ -9,6 +9,7 @@
 #import "HRIntroViewController.h"
 #import "HRFaceTimeViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import <Photos/Photos.h>
 
 @interface HRIntroViewController () <CLLocationManagerDelegate>
 
@@ -18,6 +19,29 @@
 
 - (void)viewDidLoad {
     
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        
+        
+                PHFetchResult *fetchResultForAssetCollection = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeSmartAlbumSelfPortraits options:nil];
+        
+        
+                PHAssetCollection *assetCollection = fetchResultForAssetCollection.firstObject;
+                PHFetchResult *fetchResultForAsset = [PHAsset fetchAssetsInAssetCollection:assetCollection options:nil];
+        
+                PHAsset *asset = fetchResultForAsset.firstObject;
+                PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+                options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+                options.synchronous = YES;
+                options.networkAccessAllowed = YES;
+                options.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
+        
+            [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                
+                UIImage *image = result;
+                
+
+            }];
+    }];
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor blackColor];
@@ -104,6 +128,7 @@
 
 - (void)begin {
     HRFaceTimeViewController *ftVC = [[HRFaceTimeViewController alloc] init];
+    //ftVC.trackingThem = YES;
     [self.navigationController pushViewController:ftVC animated:NO];
 }
 

@@ -23,6 +23,8 @@
 
 @property (nonatomic, strong) ARSCNView *sceneView;
 @property (nonatomic, strong) NSMutableDictionary *planes;
+@property (nonatomic, strong) NSMutableArray *planesArrary;
+@property (nonatomic, strong) ARAnchor *bathroomAnchor;
 @property (nonatomic, strong) NSMutableArray *anchors;
 
 @property (nonatomic) ARTrackingState currentTrackingState;
@@ -38,5 +40,13 @@
 @property (nonatomic,strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic,strong) AVAudioPlayer *glitchPlayer;
 @property (nonatomic,strong) UIImageView *cameraOverlay;
+@property (nonatomic,strong) UIImageView *maskOverlay;
+
+
+@property (nonatomic, strong) SCNNode *zombie;
+@property (nonatomic, strong) UIImage *selfie;
+
+@property (nonatomic) BOOL allowPlanesToLoad;
+@property (nonatomic) BOOL finished;
 
 @end

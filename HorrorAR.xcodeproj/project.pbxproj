@@ -25,6 +25,12 @@
 		008EDF412056D4D500AADA87 /* HRMainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008EDF402056D4D500AADA87 /* HRMainNavController.m */; };
 		00AF2FAB209BAFF1009C9A45 /* great.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 00AF2FAA209BAFF1009C9A45 /* great.MOV */; };
 		00B5E5C620A203B9001B280F /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 008EDF082056C9E000AADA87 /* art.scnassets */; };
+		00B7330520A4929E00B2ADBD /* la-cut.mov in Resources */ = {isa = PBXBuildFile; fileRef = 00B7330420A4929E00B2ADBD /* la-cut.mov */; };
+		00B7330720A492E900B2ADBD /* sf-cut.mov in Resources */ = {isa = PBXBuildFile; fileRef = 00B7330620A492E900B2ADBD /* sf-cut.mov */; };
+		00B7330920A496EA00B2ADBD /* glitch1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 00B7330820A496E900B2ADBD /* glitch1.wav */; };
+		00B7330B20A4971100B2ADBD /* glitch4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 00B7330A20A4971100B2ADBD /* glitch4.wav */; };
+		00B7330D20A49F4F00B2ADBD /* yw-cut.mov in Resources */ = {isa = PBXBuildFile; fileRef = 00B7330C20A49F4E00B2ADBD /* yw-cut.mov */; };
+		00B7330F20A4BD0000B2ADBD /* strings.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00B7330E20A4BD0000B2ADBD /* strings.mp3 */; };
 		00BC67EB20643D7E00CBF0CF /* hallowed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00BC67EA20643D7D00CBF0CF /* hallowed.mp3 */; };
 		00F49E56206984C400F32EB0 /* glitch4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00F49E52206984C300F32EB0 /* glitch4.mp3 */; };
 		00F49E57206984C400F32EB0 /* glitch2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00F49E53206984C300F32EB0 /* glitch2.mp3 */; };
@@ -84,6 +90,12 @@
 		008EDF3F2056D4D500AADA87 /* HRMainNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRMainNavController.h; sourceTree = "<group>"; };
 		008EDF402056D4D500AADA87 /* HRMainNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRMainNavController.m; sourceTree = "<group>"; };
 		00AF2FAA209BAFF1009C9A45 /* great.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = great.MOV; sourceTree = "<group>"; };
+		00B7330420A4929E00B2ADBD /* la-cut.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "la-cut.mov"; sourceTree = "<group>"; };
+		00B7330620A492E900B2ADBD /* sf-cut.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "sf-cut.mov"; sourceTree = "<group>"; };
+		00B7330820A496E900B2ADBD /* glitch1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = glitch1.wav; sourceTree = "<group>"; };
+		00B7330A20A4971100B2ADBD /* glitch4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = glitch4.wav; sourceTree = "<group>"; };
+		00B7330C20A49F4E00B2ADBD /* yw-cut.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "yw-cut.mov"; sourceTree = "<group>"; };
+		00B7330E20A4BD0000B2ADBD /* strings.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = strings.mp3; sourceTree = "<group>"; };
 		00BC67EA20643D7D00CBF0CF /* hallowed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hallowed.mp3; sourceTree = "<group>"; };
 		00F49E52206984C300F32EB0 /* glitch4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = glitch4.mp3; sourceTree = "<group>"; };
 		00F49E53206984C300F32EB0 /* glitch2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = glitch2.mp3; sourceTree = "<group>"; };
@@ -157,11 +169,17 @@
 				00F49E53206984C300F32EB0 /* glitch2.mp3 */,
 				00F49E54206984C400F32EB0 /* glitch3.mp3 */,
 				00F49E52206984C300F32EB0 /* glitch4.mp3 */,
+				00B7330820A496E900B2ADBD /* glitch1.wav */,
+				00B7330A20A4971100B2ADBD /* glitch4.wav */,
+				00B7330E20A4BD0000B2ADBD /* strings.mp3 */,
+				00B7330C20A49F4E00B2ADBD /* yw-cut.mov */,
 				0048267D2056EA6500D1AA57 /* facetime.mp3 */,
 				00BC67EA20643D7D00CBF0CF /* hallowed.mp3 */,
 				005D2DB920A09DC100B55942 /* facetimeanswer.wav */,
 				00AF2FAA209BAFF1009C9A45 /* great.MOV */,
 				0051757420A1EC40004DAB6F /* ny2-cut.mov */,
+				00B7330420A4929E00B2ADBD /* la-cut.mov */,
+				00B7330620A492E900B2ADBD /* sf-cut.mov */,
 				008EDF052056C9DF00AADA87 /* AppDelegate.h */,
 				008EDF062056C9DF00AADA87 /* AppDelegate.m */,
 				008EDF082056C9E000AADA87 /* art.scnassets */,
@@ -342,17 +360,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B7330520A4929E00B2ADBD /* la-cut.mov in Resources */,
 				00B5E5C620A203B9001B280F /* art.scnassets in Resources */,
+				00B7330B20A4971100B2ADBD /* glitch4.wav in Resources */,
 				005D2DBA20A09DC100B55942 /* facetimeanswer.wav in Resources */,
+				00B7330920A496EA00B2ADBD /* glitch1.wav in Resources */,
 				00AF2FAB209BAFF1009C9A45 /* great.MOV in Resources */,
 				0051757520A1EC40004DAB6F /* ny2-cut.mov in Resources */,
 				008EDF142056C9E000AADA87 /* LaunchScreen.storyboard in Resources */,
 				00F49E58206984C400F32EB0 /* glitch3.mp3 in Resources */,
+				00B7330720A492E900B2ADBD /* sf-cut.mov in Resources */,
 				00F49E57206984C400F32EB0 /* glitch2.mp3 in Resources */,
 				0048267E2056EA6500D1AA57 /* facetime.mp3 in Resources */,
 				008EDF112056C9E000AADA87 /* Assets.xcassets in Resources */,
 				008EDF0F2056C9E000AADA87 /* Main.storyboard in Resources */,
+				00B7330F20A4BD0000B2ADBD /* strings.mp3 in Resources */,
 				00BC67EB20643D7E00CBF0CF /* hallowed.mp3 in Resources */,
+				00B7330D20A49F4F00B2ADBD /* yw-cut.mov in Resources */,
 				00F49E56206984C400F32EB0 /* glitch4.mp3 in Resources */,
 				00F49E59206984C400F32EB0 /* glitch1.mp3 in Resources */,
 			);
