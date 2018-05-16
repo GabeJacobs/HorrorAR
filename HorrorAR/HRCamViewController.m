@@ -60,7 +60,7 @@
     
     [self performSelector:@selector(hideInstruction) withObject:nil afterDelay:3.0];
     [self performSelector:@selector(allowPlanes) withObject:nil afterDelay:9.0];
-    [self performSelector:@selector(showFirstARObject) withObject:nil afterDelay:20.0];
+    [self performSelector:@selector(showFirstARObject) withObject:nil afterDelay:17.0];
     [self performSelector:@selector(showGlitch1) withObject:nil afterDelay:4.0];
 
     self.cameraOverlay = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"glitch"]];
@@ -197,7 +197,10 @@
 
 - (void)showFirstARObject {
     if([self.planesArrary count] > 0){
-        [self performSelector:@selector(showBedroomInstruction) withObject:nil afterDelay:20.0];
+        
+        [self hideInstruction];
+        
+        [self performSelector:@selector(lookingAtNote) withObject:nil afterDelay:3.0];
 
         NSLog(@"showing first AR");
 
@@ -219,11 +222,6 @@
     self.instructionLabel.text = @"Look down";
     self.instructionLabel.hidden = NO;
     
-    self.videoTimer = [NSTimer scheduledTimerWithTimeInterval:8.0
-                                                         target:self
-                                                       selector:@selector(hideInstruction)
-                                                       userInfo:nil
-                                                        repeats:NO];
 
     
 
@@ -292,4 +290,17 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSLog(@"failed to fetch current location : %@", error);
 }
+
+
+- (void)lookingAtNote {
+    SCNNode *pov = self.sceneView.pointOfView;
+    if([self.sceneView isNodeInsideFrustum:self.paperNode withPointOfView:pov]){
+        [self performSelector:@selector(showBedroomInstruction) withObject:nil afterDelay:10.0];
+
+    } else{
+        NSLog(@"Waiting to see it");
+        [self performSelector:@selector(lookingAtNote) withObject:nil afterDelay:2.0];
+    }
+}
+
 @end

@@ -12,10 +12,11 @@
 #import "Plane.h"
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface HRFinalCamViewController : UIViewController
 
-@property (nonatomic) BOOL canShowRope;
+@property (nonatomic) BOOL seesNote;
 @property (nonatomic, strong) NSTimer *ropeTimer;
 @property (nonatomic, strong) NSTimer *bedroomTimer;
 @property (nonatomic) BOOL canShowNextVideo;
@@ -43,10 +44,19 @@
 @property (nonatomic,strong) UIImageView *maskOverlay;
 
 
+@property (nonatomic, strong) SCNNode *paperNode;
 @property (nonatomic, strong) SCNNode *zombie;
+
 @property (nonatomic, strong) UIImage *selfie;
 
 @property (nonatomic) BOOL allowPlanesToLoad;
 @property (nonatomic) BOOL finished;
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong)  CLGeocoder *geocoder;
+@property (nonatomic)  int locationFetchCounter;
+
+@property (nonatomic)  float firstRecordedHeading;
+@property (nonatomic)  float newHeading;
 
 @end
